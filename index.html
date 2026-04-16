@@ -6,19 +6,18 @@
   <title>Engage Colorado</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #f9f8f5;
-      --white:    #ffffff;
-      --ink:      #1c1b18;
-      --mid:      #5a5950;
-      --light:    #9a9890;
-      --rule:     #dddbd4;
-      --blue:     #1a4a7a;
-      --tag-bg:   #eeecea;
+      --bg:      #f5f0e6;
+      --paper:   #faf6ec;
+      --ink:     #1c1b18;
+      --mid:     #5a5650;
+      --light:   #8a857a;
+      --rule:    #d8d0c0;
+      --accent:  #2d4a3e;
     }
 
     html { scroll-behavior: smooth; }
@@ -28,704 +27,480 @@
       background: var(--bg);
       color: var(--ink);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    /* ── NAV ── */
-    .site-nav {
-      border-bottom: 1px solid var(--rule);
-      background: var(--bg);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-
-    .nav-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      height: 56px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .site-logo {
-      font-family: 'Newsreader', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.75rem;
-    }
-
-    .nav-links a {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--mid);
-      letter-spacing: 0.02em;
-      transition: color 0.15s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-
-    .nav-subscribe {
-      font-size: 0.75rem !important;
-      font-weight: 600 !important;
-      color: var(--blue) !important;
-      border: 1px solid var(--blue);
-      padding: 0.35rem 0.85rem;
-      border-radius: 3px;
-      transition: background 0.15s, color 0.15s !important;
-    }
-    .nav-subscribe:hover {
-      background: var(--blue) !important;
-      color: var(--white) !important;
-    }
-
-    /* ── HEADER ── */
-    .site-header {
-      border-bottom: 1px solid var(--rule);
-      padding: 3.5rem 2rem 3rem;
-    }
-
-    .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-    }
-
-    .site-kicker {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 1rem;
-    }
-
-    .site-name {
-      font-family: 'Newsreader', serif;
-      font-size: clamp(2.4rem, 5vw, 4rem);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-    }
-
-    .site-mission {
-      max-width: 600px;
-      font-size: 1.02rem;
-      font-weight: 300;
-      color: var(--mid);
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .independence-strip {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
-      border: 1px solid var(--rule);
-      border-left: 3px solid var(--ink);
-      padding: 1rem 1.25rem;
-      background: var(--white);
-      max-width: 560px;
-    }
-
-    .independence-strip p {
-      font-size: 0.82rem;
-      color: var(--mid);
-      line-height: 1.65;
-    }
-
-    .independence-strip strong {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink);
-      margin-bottom: 0.25rem;
-    }
-
-    /* ── MAIN LAYOUT ── */
-    .main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* ── SECTION LABELS ── */
-    .section-label {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--light);
-      padding: 2.5rem 0 1rem;
-      border-top: 1px solid var(--rule);
-      display: block;
-    }
-
-    /* ── ARTICLE LIST ── */
-    .article-list {
-      list-style: none;
-    }
-
-    .article-item {
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 2rem 4.5rem;
+      text-align: center;
       border-bottom: 1px solid var(--rule);
     }
 
-    .article-item a {
-      display: grid;
-      grid-template-columns: 80px 1fr;
-      gap: 0 2rem;
-      padding: 1.5rem 0;
-      align-items: start;
-      transition: opacity 0.15s;
-    }
-    .article-item a:hover { opacity: 0.7; }
-
-    .article-meta {
-      padding-top: 0.2rem;
+    .hero-inner {
+      max-width: 720px;
+      margin: 0 auto;
     }
 
-    .article-date {
-      font-size: 0.72rem;
-      color: var(--light);
-      white-space: nowrap;
-      line-height: 1.5;
-    }
-
-    .article-tag {
+    .mark {
       display: inline-block;
-      font-size: 0.65rem;
+      margin-bottom: 2.25rem;
+      color: var(--ink);
+    }
+    .mark svg {
+      display: block;
+      width: 96px;
+      height: auto;
+    }
+
+    .hero-display {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-divider {
+      width: 80px;
+      height: 1px;
+      background: var(--rule);
+      margin: 0 auto 2rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.72rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--mid);
-      background: var(--tag-bg);
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-      margin-top: 0.35rem;
+      margin-bottom: 1.1rem;
     }
 
-    .article-body {}
-
-    .article-title {
+    .hero-subhead {
       font-family: 'Newsreader', serif;
-      font-size: 1.2rem;
+      font-size: clamp(1.4rem, 3vw, 1.95rem);
       font-weight: 400;
-      line-height: 1.35;
+      line-height: 1.3;
       color: var(--ink);
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 1.5rem;
+    }
+    .hero-subhead em {
+      font-style: italic;
+      font-weight: 400;
     }
 
-    .article-excerpt {
-      font-size: 0.86rem;
+    .hero-desc {
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      font-size: 0.98rem;
       color: var(--mid);
       font-weight: 300;
-      line-height: 1.65;
+      line-height: 1.8;
     }
 
-    .article-readmore {
+    .hero-meta {
       display: inline-flex;
       align-items: center;
-      gap: 0.3rem;
-      font-size: 0.75rem;
+      gap: 1rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      color: var(--blue);
-      margin-top: 0.5rem;
-    }
-
-    /* ── FEATURED ── */
-    .featured-article {
-      border-bottom: 1px solid var(--rule);
-      padding: 2rem 0;
-    }
-
-    .featured-article a {
-      display: block;
-      transition: opacity 0.15s;
-    }
-    .featured-article a:hover { opacity: 0.75; }
-
-    .featured-label {
-      font-size: 0.65rem;
-      font-weight: 600;
       letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      color: var(--light);
     }
-    .featured-label::before {
-      content: '';
-      display: inline-block;
-      width: 16px;
-      height: 1px;
-      background: var(--blue);
+    .hero-meta .dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--light);
     }
 
-    .featured-title {
+    /* ── MAIN ── */
+    .main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding: 4rem 0 1.5rem;
+      text-align: center;
+      display: block;
+    }
+
+    /* ── POSTS ── */
+    .posts {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .post-tile {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .post-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 27, 24, 0.08);
+    }
+
+    .post-tile a {
+      display: block;
+    }
+
+    .post-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .post-body {
+      padding: 2rem 2.25rem 2.25rem;
+    }
+
+    .post-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(45, 74, 62, 0.08);
+      border: 1px solid rgba(45, 74, 62, 0.2);
+      padding: 0.4rem 0.75rem;
+      border-radius: 2px;
+      margin-bottom: 1.1rem;
+    }
+
+    .post-title {
       font-family: 'Newsreader', serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-size: clamp(1.6rem, 3vw, 2.1rem);
       font-weight: 400;
       line-height: 1.25;
       letter-spacing: -0.015em;
       color: var(--ink);
       margin-bottom: 0.75rem;
     }
+    .post-title em { font-style: italic; }
 
-    .featured-meta {
-      font-size: 0.75rem;
-      color: var(--light);
-      margin-bottom: 0.85rem;
-    }
-
-    .featured-excerpt {
+    .post-excerpt {
       font-size: 0.95rem;
       color: var(--mid);
       font-weight: 300;
       line-height: 1.75;
       max-width: 580px;
-      margin-bottom: 0.85rem;
     }
 
-    /* ── ENSURING COLORADO CALLOUT ── */
-    .related-callout {
-      margin: 3rem 0;
-      border: 1px solid var(--rule);
-      background: var(--white);
-      padding: 2rem;
+    /* ── CALLOUT ── */
+    .callout {
+      --plum:       #6c5a88;
+      --plum-bg:    #ece7f0;
+      --plum-rule:  #d4cadb;
+      margin: 3rem 0 2rem;
+      padding: 1.1rem 1.5rem;
+      background: var(--plum-bg);
+      border: 1px solid var(--plum-rule);
       display: flex;
+      align-items: center;
       gap: 1.5rem;
-      align-items: flex-start;
+      text-align: left;
     }
 
-    .callout-icon {
-      font-size: 1.5rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
+    .callout-body {
+      flex: 1;
+      min-width: 0;
     }
 
     .callout-label {
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--light);
-      margin-bottom: 0.4rem;
+      color: var(--plum);
+      margin-bottom: 0.2rem;
     }
 
     .callout-title {
       font-family: 'Newsreader', serif;
-      font-size: 1.15rem;
-      font-weight: 400;
+      font-style: italic;
+      font-size: 1rem;
+      font-weight: 500;
       color: var(--ink);
-      margin-bottom: 0.5rem;
+      display: inline;
+      margin-right: 0.5rem;
     }
 
     .callout-desc {
-      font-size: 0.85rem;
+      display: inline;
+      font-size: 0.82rem;
       color: var(--mid);
       font-weight: 300;
-      line-height: 1.7;
-      margin-bottom: 0.75rem;
+      line-height: 1.55;
     }
 
     .callout-link {
-      font-size: 0.78rem;
-      font-weight: 500;
-      color: var(--blue);
-      text-decoration: underline;
-      text-underline-offset: 2px;
-    }
-    .callout-link:hover { opacity: 0.7; }
-
-    /* ── COMING SOON ── */
-    .coming-soon {
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 2.5rem 0;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .coming-soon p {
-      font-size: 0.88rem;
-      color: var(--mid);
-      font-weight: 300;
-      font-style: italic;
-    }
-
-    .coming-soon-dots {
-      display: flex;
-      gap: 5px;
       flex-shrink: 0;
-    }
-    .coming-soon-dots span {
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--rule);
-    }
-
-    /* ── NEWSLETTER ── */
-    .newsletter {
-      padding: 3rem 0 1rem;
-      border-top: 1px solid var(--rule);
-      margin-top: 2rem;
-    }
-
-    .newsletter h2 {
-      font-family: 'Newsreader', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-    }
-
-    .newsletter p {
-      font-size: 0.88rem;
-      color: var(--mid);
-      font-weight: 300;
-      margin-bottom: 1.5rem;
-      max-width: 440px;
-      line-height: 1.7;
-    }
-
-    #mc-embedded-subscribe-form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      max-width: 420px;
-    }
-
-    .mc-row {
-      display: flex;
-      gap: 0.5rem;
-    }
-
-    .mc-field-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      flex: 1;
-    }
-
-    .mc-field-group label {
       font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.08em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--light);
+      color: var(--plum);
+      border-bottom: 1px solid var(--plum);
+      padding-bottom: 1px;
+      white-space: nowrap;
     }
 
-    .mc-field-group input {
-      padding: 0.65rem 0.85rem;
-      border: 1px solid var(--rule);
-      background: var(--white);
-      color: var(--ink);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.88rem;
-      border-radius: 3px;
-      outline: none;
-      transition: border-color 0.15s;
-      width: 100%;
-    }
-    .mc-field-group input:focus { border-color: var(--blue); }
-
-    #mc-embedded-subscribe {
-      padding: 0.65rem 1.25rem;
-      background: var(--ink);
-      color: var(--bg);
-      border: none;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 500;
-      letter-spacing: 0.05em;
-      border-radius: 3px;
-      cursor: pointer;
-      transition: background 0.15s;
-      align-self: flex-start;
-    }
-    #mc-embedded-subscribe:hover { background: var(--blue); }
-
-    .mc-fine-print {
-      font-size: 0.7rem;
-      color: var(--light);
+    @media (max-width: 720px) {
+      .callout { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+      .callout-link { align-self: flex-start; }
     }
 
     /* ── FOOTER ── */
     .site-footer {
       border-top: 1px solid var(--rule);
       margin-top: 4rem;
+      padding: 2.5rem 2rem;
+      text-align: center;
     }
-
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 2rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .footer-left {}
 
     .footer-logo {
       font-family: 'Newsreader', serif;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-style: italic;
+      font-size: 1.15rem;
       color: var(--ink);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .footer-disclaimer {
+      font-size: 0.75rem;
+      color: var(--light);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── CONTACT ── */
+    .contact {
+      border-top: 1px solid var(--rule);
+      margin-top: 4rem;
+      padding: 4rem 0 2rem;
+      text-align: center;
+    }
+
+    .contact-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+
+    .contact-title {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 3vw, 2.25rem);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.9rem;
+    }
+
+    .contact-desc {
+      font-size: 0.95rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+    }
+
+    .contact-form {
+      display: flex;
+      gap: 0.5rem;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .contact-form input[type="email"] {
+      flex: 1;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--rule);
+      background: var(--paper);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .contact-form input[type="email"]:focus { border-color: var(--ink); }
+
+    .contact-form button {
+      padding: 0.8rem 1.4rem;
+      background: var(--ink);
+      color: var(--bg);
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .contact-form button:hover { background: #000; }
+
+    .contact-fine {
       font-size: 0.72rem;
       color: var(--light);
-      max-width: 340px;
-      line-height: 1.6;
+      margin-top: 1rem;
     }
 
-    .footer-right {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-      text-align: right;
-    }
-
-    .footer-right a {
-      font-size: 0.75rem;
-      color: var(--mid);
-      transition: color 0.15s;
-    }
-    .footer-right a:hover { color: var(--blue); }
-
-    /* ── RESPONSIVE ── */
     @media (max-width: 580px) {
-      .nav-inner { padding: 0 1rem; }
-      .site-header { padding: 2.5rem 1rem 2rem; }
-      .main { padding: 0 1rem; }
-      .article-item a { grid-template-columns: 1fr; gap: 0.25rem; }
-      .article-date { display: none; }
-      .article-tag { margin-top: 0; margin-bottom: 0.25rem; }
-      .mc-row { flex-direction: column; }
-      .related-callout { flex-direction: column; gap: 0.75rem; }
-      .coming-soon { flex-direction: column; gap: 0.5rem; }
-      .footer-inner { flex-direction: column; gap: 1.5rem; }
-      .footer-right { text-align: left; }
+      .hero { padding: 3.5rem 1.25rem 3rem; }
+      .main { padding: 0 1.25rem; }
+      .callout { padding: 2rem 1.5rem; }
+      .contact-form { flex-direction: column; }
     }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav class="site-nav">
-    <div class="nav-inner">
-      <a class="site-logo" href="index.html">Engage Colorado</a>
-      <div class="nav-links">
-        <a href="about.html">About</a>
-        <a href="#newsletter" class="nav-subscribe">Subscribe</a>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="1.75" stroke-linejoin="round" stroke-linecap="round">
+          <defs>
+            <linearGradient id="mountainSplit" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#1e4b8f" />
+              <stop offset="0.5" stop-color="#1e4b8f" />
+              <stop offset="0.5" stop-color="#b1302e" />
+              <stop offset="1" stop-color="#b1302e" />
+            </linearGradient>
+          </defs>
+          <g stroke="url(#mountainSplit)">
+            <path d="M4 72 L28 48 L44 60 L80 14 L104 48 L130 26 L156 50 L182 34 L216 72" />
+            <path d="M72 24 L80 14 L88 24" />
+            <path d="M124 34 L130 26 L136 34" />
+            <path d="M176 42 L182 34 L188 42" />
+          </g>
+        </svg>
       </div>
-    </div>
-  </nav>
-
-  <!-- SITE HEADER -->
-  <header class="site-header">
-    <div class="header-inner">
-      <div class="site-kicker">Colorado · Public Policy · Ideas</div>
-      <h1 class="site-name">Engage Colorado</h1>
-      <p class="site-mission">
-        An independent publishing platform for articles, newsletters, and commentary
-        focused on Colorado's future — its leadership, policy, and long-term success.
-        This platform has been established to provide a vehicle for thoughtful, unaffiliated
-        voices to engage with the ideas that shape our state.
+      <h1 class="hero-display">Engage Colorado</h1>
+      <div class="hero-divider"></div>
+      <div class="hero-kicker">A grassroots coalition committed to</div>
+      <p class="hero-subhead">Ensuring Colorado's <em>Innovation</em> Future</p>
+      <p class="hero-desc">
+        Colorado is at an inflection point. The decisions being made right now
+        will define life here for a generation. Engage Colorado is a publishing
+        platform for pragmatic, independent voices on the policies and decisions
+        shaping the state — aimed at ensuring the long-term innovation future
+        of our state.
       </p>
-      <div class="independence-strip">
-        <p>
-          <strong>A note on independence</strong>
-          Engage Colorado is separate from the Engage Coalition. This platform is
-          intentionally independent, with flexibility of authorship, perspective, and content.
-        </p>
+      <div class="hero-meta">
+        <span>Est. 2026</span>
+        <span class="dot"></span>
+        <span>Denver, CO</span>
       </div>
     </div>
-  </header>
+  </section>
 
-  <!-- MAIN -->
   <main class="main">
 
-    <!-- FEATURED POST -->
-    <span class="section-label">Featured</span>
-    <div class="featured-article">
-      <a href="article.html">
-        <div class="featured-label">Welcome</div>
-        <h2 class="featured-title">Introducing Engage Colorado: An Independent Platform for Colorado's Future</h2>
-        <div class="featured-meta">April 2025 &nbsp;·&nbsp; The Editors</div>
-        <p class="featured-excerpt">
-          Colorado is at an inflection point. The decisions being made now — about health care,
-          economic opportunity, housing, and governance — will shape the state for a generation.
-          This platform exists to engage those decisions with honesty, rigor, and independence.
-        </p>
-        <div class="article-readmore">Read more →</div>
-      </a>
-    </div>
+    <span class="section-label">Latest articles</span>
 
-    <!-- ARCHIVE -->
-    <span class="section-label">Archive</span>
-    <ul class="article-list">
-
-      <li class="article-item">
-        <a href="article.html">
-          <div class="article-meta">
-            <div class="article-date">Apr 2025</div>
-            <span class="article-tag">Newsletter</span>
-          </div>
-          <div class="article-body">
-            <div class="article-title">What We're Watching: Spring 2025</div>
-            <p class="article-excerpt">A look at the policy questions and developments we're following most closely as Colorado heads into a pivotal legislative session.</p>
-            <div class="article-readmore">Read more →</div>
+    <ul class="posts">
+      <li class="post-tile">
+        <!--
+          MAILCHIMP: When the post is live, replace `href="#"` below with your
+          Mailchimp campaign/archive URL. See notes at the bottom of the file.
+        -->
+        <a href="#">
+          <div class="post-body">
+            <span class="post-status">Coming Soon</span>
+            <h2 class="post-title">The First Test</h2>
+            <p class="post-excerpt">
+              The inaugural piece from Engage Colorado is on its way. Check back
+              shortly — or subscribe below to be notified when it publishes.
+            </p>
           </div>
         </a>
       </li>
-
-      <li class="article-item">
-        <a href="article.html">
-          <div class="article-meta">
-            <div class="article-date">Apr 2025</div>
-            <span class="article-tag">Commentary</span>
-          </div>
-          <div class="article-body">
-            <div class="article-title">Why Independent Voices Matter for Colorado's Policy Debate</div>
-            <p class="article-excerpt">Coalition politics are useful, but they have limits. There's a case for publishing platforms that can move faster, speak plainly, and hold multiple perspectives at once.</p>
-            <div class="article-readmore">Read more →</div>
-          </div>
-        </a>
-      </li>
-
-      <li class="article-item">
-        <a href="article.html">
-          <div class="article-meta">
-            <div class="article-date">Apr 2025</div>
-            <span class="article-tag">Spotlight</span>
-          </div>
-          <div class="article-body">
-            <div class="article-title">Ensuring Colorado: Building a Health System That Works for Everyone</div>
-            <p class="article-excerpt">A look at the Ensuring Colorado initiative and the case for expanding access to affordable, quality health coverage across the state.</p>
-            <div class="article-readmore">Read more →</div>
-          </div>
-        </a>
-      </li>
-
     </ul>
 
-    <!-- COMING SOON -->
-    <div class="coming-soon">
-      <p>Additional articles, newsletters, and resources are being added. Check back soon.</p>
-      <div class="coming-soon-dots">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-
-    <!-- ENSURING COLORADO CALLOUT -->
-    <div class="related-callout">
-      <div class="callout-icon">↗</div>
-      <div>
-        <div class="callout-label">Related Initiative</div>
-        <div class="callout-title">Ensuring Colorado</div>
-        <p class="callout-desc">
-          Ensuring Colorado is a statewide initiative working to expand access to affordable
-          health coverage for every Coloradan. It brings together business leaders, community
-          voices, and policymakers around a common goal: a health system that leaves no one
-          behind.
-        </p>
-        <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
-          Visit ensuringcolorado.com →
-        </a>
-      </div>
-    </div>
-
-    <!-- NEWSLETTER -->
-    <section class="newsletter" id="newsletter">
-      <h2>Stay informed.</h2>
-      <p>
-        Subscribe to receive new articles, newsletters, and updates from Engage Colorado
-        directly to your inbox.
+    <!-- ── GET IN TOUCH ── -->
+    <section class="contact" id="contact">
+      <div class="contact-label">Get in touch</div>
+      <h2 class="contact-title">Stay in the conversation.</h2>
+      <p class="contact-desc">
+        Enter your email to learn more about Engage Colorado and be notified
+        when new articles publish.
       </p>
       <!--
-        MAILCHIMP SETUP:
-        1. Mailchimp → Audience → Signup Forms → Embedded Forms
-        2. Copy your form action URL and replace the action value below
-        3. Update the honeypot field name (b_REPLACE_REPLACE) with your list's value
+        MAILCHIMP: Replace the action URL below with your Mailchimp form action.
+        1. Mailchimp → Audience → Signup forms → Embedded forms
+        2. Copy the `action` URL from the generated <form> tag
+        3. Replace the honeypot field name `b_REPLACE_REPLACE` with the value
+           from your embed code (starts with `b_`) to prevent spam bots.
       -->
       <form
+        class="contact-form"
         action="https://YOUR-LIST.list-manage.com/subscribe/post?u=REPLACE&amp;id=REPLACE"
         method="post"
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
         target="_blank"
         novalidate
       >
-        <div class="mc-row">
-          <div class="mc-field-group">
-            <label for="mce-FNAME">First name</label>
-            <input type="text" name="FNAME" id="mce-FNAME" placeholder="Jane" />
-          </div>
-          <div class="mc-field-group">
-            <label for="mce-LNAME">Last name</label>
-            <input type="text" name="LNAME" id="mce-LNAME" placeholder="Smith" />
-          </div>
-        </div>
-        <div class="mc-field-group">
-          <label for="mce-EMAIL">Email address *</label>
-          <input type="email" name="EMAIL" id="mce-EMAIL" placeholder="jane@example.com" required />
-        </div>
+        <input type="email" name="EMAIL" placeholder="you@example.com" required aria-label="Email address" />
         <div style="position:absolute;left:-5000px" aria-hidden="true">
           <input type="text" name="b_REPLACE_REPLACE" tabindex="-1" value="" />
         </div>
-        <button type="submit" id="mc-embedded-subscribe">Subscribe</button>
-        <p class="mc-fine-print">We respect your privacy. No spam. Unsubscribe anytime.</p>
+        <button type="submit">Subscribe</button>
       </form>
+      <p class="contact-fine">No spam. Unsubscribe anytime.</p>
     </section>
+
+    <div class="callout">
+      <div class="callout-body">
+        <div class="callout-label">Related Initiative</div>
+        <h2 class="callout-title">Ensuring Colorado.</h2>
+        <span class="callout-desc">
+          Read the Open Letter, written by a bipartisan coalition of Colorado
+          tech and business leaders representing founders, investors, and
+          operators across the state — who are deeply concerned that the
+          direction we are heading threatens the long-term prosperity of the
+          people who call Colorado home.
+        </span>
+      </div>
+      <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
+        Read the Open Letter →
+      </a>
+    </div>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-left">
-        <div class="footer-logo">Engage Colorado</div>
-        <p class="footer-disclaimer">
-          An independent publishing platform. Not affiliated with or acting on behalf
-          of the Engage Coalition or any political organization. Views are those of
-          individual authors.
-        </p>
-      </div>
-      <div class="footer-right">
-        <a href="about.html">About</a>
-        <a href="#newsletter">Newsletter</a>
-        <a href="https://ensuringcolorado.com" target="_blank" rel="noopener">Ensuring Colorado ↗</a>
-        <a href="https://coinnovationfuture.com" target="_blank" rel="noopener">CoInnovation Future ↗</a>
-      </div>
-    </div>
+    <div class="footer-logo">Engage Colorado</div>
+    <p class="footer-disclaimer">
+      An independent publishing platform. Views are those of individual authors.
+    </p>
   </footer>
 
 </body>
