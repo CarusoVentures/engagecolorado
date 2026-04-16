@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Engage Colorado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #f9f8f5;
+      --white: #ffffff;
+      --ink:   #1c1b18;
+      --mid:   #5a5950;
+      --light: #9a9890;
+      --rule:  #dddbd4;
+      --blue:  #1a4a7a;
+      --tag-bg:#eeecea;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .site-nav {
+      border-bottom: 1px solid var(--rule);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-logo {
+      font-family: 'Newsreader', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.75rem;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--mid);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-subscribe {
+      font-size: 0.75rem !important;
+      font-weight: 600 !important;
+      color: var(--blue) !important;
+      border: 1px solid var(--blue);
+      padding: 0.35rem 0.85rem;
+      border-radius: 3px;
+    }
+    .nav-subscribe:hover {
+      background: var(--blue) !important;
+      color: var(--white) !important;
+    }
+
+    /* Page content */
+    .page-header {
+      border-bottom: 1px solid var(--rule);
+      padding: 3rem 2rem 2.5rem;
+    }
+
+    .page-header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .breadcrumb {
+      font-size: 0.72rem;
+      color: var(--light);
+      margin-bottom: 1rem;
+    }
+
+    .breadcrumb a { color: var(--light); }
+    .breadcrumb a:hover { color: var(--blue); }
+
+    .page-title {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    .prose-container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .prose p {
+      font-family: 'Newsreader', serif;
+      font-size: 1.08rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.85;
+      margin-bottom: 1.5rem;
+    }
+
+    .prose h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .prose a {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .prose a:hover { opacity: 0.7; }
+
+    .related-sites {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .related-site {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--rule);
+      background: var(--white);
+    }
+
+    .related-site-name {
+      font-family: 'Newsreader', serif;
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .related-site-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    .related-site-link {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--blue);
+      margin-top: 0.35rem;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    /* footer */
+    .site-footer {
+      border-top: 1px solid var(--rule);
+    }
+
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      font-family: 'Newsreader', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: var(--light);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      text-align: right;
+    }
+
+    .footer-right a {
+      font-size: 0.75rem;
+      color: var(--mid);
+      transition: color 0.15s;
+    }
+    .footer-right a:hover { color: var(--blue); }
+
+    @media (max-width: 580px) {
+      .nav-inner { padding: 0 1rem; }
+      .page-header { padding: 2rem 1rem 1.5rem; }
+      .prose-container { padding: 2rem 1rem 3rem; }
+      .related-site { flex-direction: column; gap: 0.25rem; }
+      .footer-inner { flex-direction: column; }
+      .footer-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a class="site-logo" href="index.html">Engage Colorado</a>
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="index.html#newsletter" class="nav-subscribe">Subscribe</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="page-header-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a> / About</div>
+      <h1 class="page-title">About Engage Colorado</h1>
+    </div>
+  </header>
+
+  <div class="prose-container">
+    <div class="prose">
+
+      <h2>What this is</h2>
+      <p>
+        Engage Colorado is an independent publishing platform focused on articles, newsletters,
+        and commentary about Colorado's future — its leadership, public policy, economic
+        opportunity, and long-term success.
+      </p>
+      <p>
+        This platform was established as a vehicle to support thoughtful, substantive public
+        engagement with the ideas and initiatives shaping our state. It is designed to provide
+        flexibility of authorship and perspective, allowing contributors to write freely and
+        without institutional constraint.
+      </p>
+
+      <h2>Independence</h2>
+      <p>
+        Engage Colorado is <em>not</em> the Engage Coalition, and is not affiliated with any
+        coalition, political organization, or advocacy group. It is an independent publishing
+        vehicle. The views expressed in articles and newsletters are those of their individual
+        authors.
+      </p>
+      <p>
+        This independence is intentional. It gives contributors the room to engage honestly
+        with complex policy questions — without the constraints that come with coalition
+        membership or organizational affiliation.
+      </p>
+
+      <h2>What to expect</h2>
+      <p>
+        This platform is in its early stages. Additional content — including regular newsletters,
+        long-form commentary, and resources — will be added over time. Subscribe to stay
+        informed as new material is published.
+      </p>
+
+      <h2>Related initiatives</h2>
+      <div class="related-sites">
+        <div class="related-site">
+          <div>
+            <div class="related-site-name">Ensuring Colorado</div>
+            <div class="related-site-desc">
+              A statewide initiative working to expand access to affordable, quality health
+              coverage for every Coloradan — bringing together business, community, and
+              policy voices around a shared goal.
+            </div>
+            <a class="related-site-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
+              ensuringcolorado.com →
+            </a>
+          </div>
+        </div>
+        <div class="related-site">
+          <div>
+            <div class="related-site-name">CoInnovation Future</div>
+            <div class="related-site-desc">
+              Exploring how technology, collaboration, and forward-thinking policy can unlock
+              opportunity for communities across Colorado.
+            </div>
+            <a class="related-site-link" href="https://coinnovationfuture.com" target="_blank" rel="noopener">
+              coinnovationfuture.com →
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <h2>Contact</h2>
+      <p>
+        For inquiries, reach us at
+        <a href="mailto:kendall@carusoventures.com">kendall@carusoventures.com</a>.
+      </p>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Engage Colorado</div>
+        <p class="footer-disclaimer">
+          An independent publishing platform. Not affiliated with or acting on behalf
+          of the Engage Coalition or any political organization.
+        </p>
+      </div>
+      <div class="footer-right">
+        <a href="about.html">About</a>
+        <a href="index.html#newsletter">Newsletter</a>
+        <a href="https://ensuringcolorado.com" target="_blank" rel="noopener">Ensuring Colorado ↗</a>
+        <a href="https://coinnovationfuture.com" target="_blank" rel="noopener">CoInnovation Future ↗</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
