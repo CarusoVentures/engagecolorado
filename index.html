@@ -265,9 +265,18 @@
       white-space: nowrap;
     }
 
+    .callout-links {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
+    }
+
     @media (max-width: 720px) {
       .callout { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
       .callout-link { align-self: flex-start; }
+      .callout-links { align-items: flex-start; }
     }
 
     /* ── FOOTER ── */
@@ -489,6 +498,39 @@
       </div>
       <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
         Read the Open Letter →
+      </a>
+    </div>
+
+    <div class="callout">
+      <div class="callout-body">
+        <div class="callout-label">Listen</div>
+        <h2 class="callout-title">The Bear Roars Podcast.</h2>
+        <span class="callout-desc">
+          Conversations with the founders, operators, and policymakers shaping
+          Colorado's innovation future. Subscribe to catch every episode.
+        </span>
+      </div>
+      <div class="callout-links">
+        <a class="callout-link" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
+          Spotify →
+        </a>
+        <a class="callout-link" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
+          Apple Podcasts →
+        </a>
+      </div>
+    </div>
+
+    <div class="callout">
+      <div class="callout-body">
+        <div class="callout-label">Live Event</div>
+        <h2 class="callout-title">Boulder Roots Music Festival.</h2>
+        <span class="callout-desc">
+          Celebrate Colorado's creative community at the Boulder Roots Music
+          Festival. Grab your tickets before they sell out.
+        </span>
+      </div>
+      <a class="callout-link" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
+        Buy Tickets →
       </a>
     </div>
 
