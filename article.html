@@ -213,6 +213,112 @@
     }
     .footer-right a:hover { color: var(--blue); }
 
+    /* Subscribe modal */
+    .sub-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 14, 12, 0.55);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 1.5rem;
+    }
+    .sub-modal.is-open { display: flex; }
+
+    .sub-modal-card {
+      background: var(--white);
+      border-radius: 8px;
+      max-width: 440px;
+      width: 100%;
+      padding: 2rem 1.85rem 1.85rem;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .sub-modal-close {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.75rem;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--light);
+      cursor: pointer;
+      border-radius: 50%;
+    }
+    .sub-modal-close:hover { color: var(--ink); background: var(--rule); }
+
+    .sub-modal-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 0.5rem;
+    }
+
+    .sub-modal-title {
+      font-family: 'Newsreader', serif;
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+
+    .sub-modal-copy {
+      font-size: 0.9rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .sub-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .sub-form input[type="email"] {
+      padding: 0.75rem 0.9rem;
+      border: 1px solid var(--rule);
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    .sub-form input[type="email"]:focus { border-color: var(--blue); }
+
+    .sub-form button {
+      padding: 0.8rem 1rem;
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .sub-form button:hover { background: var(--blue); }
+
+    .sub-hp {
+      position: absolute;
+      left: -5000px;
+    }
+
     @media (max-width: 580px) {
       .nav-inner { padding: 0 1rem; }
       .article-header { padding: 2rem 1rem 1.5rem; }
@@ -271,32 +377,56 @@
     </div>
   </footer>
 
-  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3bfb0e6816958c8055d40bf48/70c98f348aadaf8e1369bb670.js");</script>
+  <div class="sub-modal" id="subModal" aria-hidden="true" role="dialog" aria-labelledby="subModalTitle">
+    <div class="sub-modal-card" role="document">
+      <button type="button" class="sub-modal-close" id="subModalClose" aria-label="Close">×</button>
+      <div class="sub-modal-eyebrow">Newsletter</div>
+      <h2 class="sub-modal-title" id="subModalTitle">Stay in the conversation.</h2>
+      <p class="sub-modal-copy">
+        Get each edition of Engage Colorado delivered to your inbox.
+      </p>
+      <form
+        class="sub-form"
+        action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
+        method="post"
+        target="_blank"
+        novalidate
+      >
+        <input type="email" name="EMAIL" placeholder="you@example.com" required />
+        <div class="sub-hp" aria-hidden="true">
+          <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
+        </div>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
 
   <script>
     (function () {
       const btn = document.getElementById('navSubscribe');
-      if (!btn) return;
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        // Clear Mailchimp popup cookies so the popup re-appears on demand
-        document.cookie = 'MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
-        document.cookie = 'MCPopupSubscribed=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+      const modal = document.getElementById('subModal');
+      const closeBtn = document.getElementById('subModalClose');
+      if (!btn || !modal) return;
 
-        // If the popup has already been injected into the DOM, just show it
-        const existing = document.getElementById('PopupSignupForm_0');
-        if (existing) {
-          existing.style.display = 'block';
-          return;
-        }
+      function open(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        const input = modal.querySelector('input[type="email"]');
+        if (input) setTimeout(() => input.focus(), 50);
+      }
+      function close() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+      }
 
-        // Otherwise re-inject the Mailchimp loader to render the popup
-        const old = document.getElementById('mcjs');
-        if (old && old.parentNode) old.parentNode.removeChild(old);
-        const s = document.createElement('script');
-        s.id = 'mcjs';
-        s.src = 'https://chimpstatic.com/mcjs-connected/js/users/3bfb0e6816958c8055d40bf48/70c98f348aadaf8e1369bb670.js';
-        document.head.appendChild(s);
+      btn.addEventListener('click', open);
+      if (closeBtn) closeBtn.addEventListener('click', close);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) close();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) close();
       });
     })();
   </script>
