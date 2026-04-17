@@ -281,10 +281,15 @@
 
     /* ── CTA PAIR (distinct from page) ── */
     .cta-pair {
-      margin: 3rem 0 1.5rem;
+      margin: 3rem auto 1.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 0.9rem;
+      width: calc(100vw - 3rem);
+      max-width: 1040px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .cta-card {
