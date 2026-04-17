@@ -53,7 +53,7 @@ module.exports = async function handler(req, res) {
         pubDate: c.send_time || '',
         description: (c.settings && c.settings.preview_text) || '',
       }))
-      .filter((c) => c.link);
+      .filter((c) => c.link && /^engage colorado\b/i.test(c.title));
 
     res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=3600');
     return res.status(200).json({ campaigns });
