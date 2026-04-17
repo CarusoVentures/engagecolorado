@@ -105,22 +105,71 @@
       line-height: 1.75;
       text-align: left;
     }
-    .hero-desc a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-    .hero-desc strong { color: var(--ink); font-weight: 600; }
 
     .hero-body {
-      max-width: 880px;
+      max-width: 760px;
       margin: 0 auto 2.5rem;
     }
 
-    .hero-signoff {
-      max-width: 880px;
-      margin: 1.75rem auto 0;
+    /* ── NOTE STYLING (from Dan Caruso) ── */
+    .note-kicker {
+      max-width: 760px;
+      margin: 2.5rem auto 1.25rem;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      text-align: left;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .note-body {
+      max-width: 760px;
+    }
+
+    .note-para {
+      font-family: 'Newsreader', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      line-height: 1.65;
+      color: var(--ink);
+      margin: 0 0 1.1rem;
+      text-align: left;
+    }
+    .note-para a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+    .note-para strong { font-weight: 600; }
+
+    .note-signoff {
+      margin-top: 2rem;
+      text-align: left;
+    }
+    .note-signoff p { margin: 0; }
+    .note-signoff-dash {
+      font-family: 'Newsreader', serif;
+      font-size: 1.15rem;
+      color: var(--light);
+      margin-bottom: 0.4rem;
+    }
+    .note-signoff-name {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .note-signoff-team {
       font-family: 'Newsreader', serif;
       font-style: italic;
       font-size: 1rem;
-      color: var(--ink);
-      text-align: left;
+      color: var(--mid);
+      margin-top: 0.2rem;
     }
 
     .hero-meta {
@@ -540,19 +589,20 @@
       <h1 class="hero-display">Engage Colorado</h1>
       <div class="hero-divider"></div>
       <p class="hero-subhead"><em>Colorado's Journey to Become the World's Top Innovation Ecosystem</em></p>
-      <div class="hero-body">
-        <p class="hero-desc">
+      <div class="note-kicker">A Note from Dan Caruso</div>
+      <div class="hero-body note-body">
+        <p class="note-para">
           Engage Colorado launched in April 2026, sparked by the grassroots
           coalition that came together to
           <a href="https://ensuringcolorado.com" target="_blank" rel="noopener"><strong>Ensure Colorado's Innovation Future</strong></a>.
         </p>
-        <p class="hero-desc">
+        <p class="note-para">
           Our vision is simple: unite Coloradans around the values that made
           this state great — collaboration, aspiration, and innovation. We
           believe a love of Colorado and an awe of what innovation can build
           are not at odds. Together, they point the way forward.
         </p>
-        <p class="hero-desc">
+        <p class="note-para">
           No modern community thrives without a strong tech sector. This
           newsletter leans into that truth. We'll champion the work of making
           Colorado the best tech ecosystem in the world — and we'll push for
@@ -560,11 +610,15 @@
           education, healthcare, jobs, culture, recreation, and infrastructure
           for everyone who calls this state home.
         </p>
-        <p class="hero-desc">
+        <p class="note-para">
           Above all, we'll work to respect one another — for our differences
           as much as for what we share.
         </p>
-        <p class="hero-signoff">— Dan Caruso and the Caruso Ventures team</p>
+        <div class="note-signoff">
+          <p class="note-signoff-dash">—</p>
+          <p class="note-signoff-name">Dan Caruso</p>
+          <p class="note-signoff-team">and the Caruso Ventures team</p>
+        </div>
       </div>
       <div class="hero-meta">
         <span>Est. 2026</span>
@@ -573,6 +627,47 @@
       </div>
     </div>
   </section>
+
+  <div class="cta-pair">
+    <div class="cta-card cta-card--podcast">
+      <div class="cta-body">
+        <div class="cta-eyebrow">Listen</div>
+        <h2 class="cta-heading">The Bear Roars</h2>
+        <p class="cta-copy">
+          Candid conversations with the founders, operators, and policymakers
+          shaping Colorado's innovation future.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="cta-btn" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
+          Spotify
+        </a>
+        <a class="cta-btn cta-btn--ghost" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
+          Apple
+        </a>
+        <a class="cta-btn cta-btn--ghost" href="https://www.youtube.com/@TheBearRoars" target="_blank" rel="noopener">
+          YouTube
+        </a>
+      </div>
+    </div>
+
+    <div class="cta-card cta-card--festival">
+      <div class="cta-body">
+        <div class="cta-eyebrow">Live Event</div>
+        <h2 class="cta-heading">Boulder Roots Fest</h2>
+        <p class="cta-copy">
+          A summer celebration of Colorado's creative community and the
+          artists who call the Front Range home. Grab tickets before they
+          sell out.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="cta-btn" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
+          Buy Tickets
+        </a>
+      </div>
+    </div>
+  </div>
 
   <main class="main">
 
@@ -636,46 +731,6 @@
       </a>
     </div>
 
-    <div class="cta-pair">
-      <div class="cta-card cta-card--podcast">
-        <div class="cta-body">
-          <div class="cta-eyebrow">Listen</div>
-          <h2 class="cta-heading">The Bear Roars</h2>
-          <p class="cta-copy">
-            Candid conversations with the founders, operators, and policymakers
-            shaping Colorado's innovation future.
-          </p>
-        </div>
-        <div class="cta-actions">
-          <a class="cta-btn" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
-            Spotify
-          </a>
-          <a class="cta-btn cta-btn--ghost" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
-            Apple
-          </a>
-          <a class="cta-btn cta-btn--ghost" href="https://www.youtube.com/@TheBearRoars" target="_blank" rel="noopener">
-            YouTube
-          </a>
-        </div>
-      </div>
-
-      <div class="cta-card cta-card--festival">
-        <div class="cta-body">
-          <div class="cta-eyebrow">Live Event</div>
-          <h2 class="cta-heading">Boulder Roots Fest</h2>
-          <p class="cta-copy">
-            A summer celebration of Colorado's creative community and the
-            artists who call the Front Range home. Grab tickets before they
-            sell out.
-          </p>
-        </div>
-        <div class="cta-actions">
-          <a class="cta-btn" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
-            Buy Tickets
-          </a>
-        </div>
-      </div>
-    </div>
 
   </main>
 
