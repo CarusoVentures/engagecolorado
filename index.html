@@ -465,14 +465,20 @@
     /* ── 3-COLUMN LAYOUT ── */
     .columns {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 3rem;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 1.25rem 2.5rem;
       max-width: 1440px;
       margin: 2.5rem auto 5rem;
       padding: 0 3rem;
-      align-items: start;
     }
-    .col { min-width: 0; }
+    .col {
+      display: grid;
+      grid-template-rows: subgrid;
+      grid-row: 1 / span 3;
+      gap: 1.25rem;
+      min-width: 0;
+    }
 
     /* Unified column eyebrow (section header) */
     .col-eyebrow {
@@ -489,18 +495,19 @@
     a.col-eyebrow--link { transition: color 0.15s ease; }
     a.col-eyebrow--link:hover { color: var(--ink); }
 
-    /* ── LEFT COLUMN: stacked CTA cards ── */
+    /* ── CARDS — stretch to fill row height ── */
     .cta-card--stacked {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.9rem;
-      padding: 1.15rem 1.25rem 1.1rem;
+      padding: 1.25rem 1.35rem 1.25rem;
+      height: 100%;
     }
-    .cta-card--stacked .cta-actions { width: 100%; gap: 0.45rem; }
-    .col-left .cta-card + .cta-card { margin-top: 1rem; }
-    .col-left .cta-heading { font-size: 1.05rem; margin-bottom: 0.35rem; }
-    .col-left .cta-eyebrow { margin-bottom: 0.35rem; }
-    .col-left .cta-copy { font-size: 0.8rem; line-height: 1.55; }
+    .cta-card--stacked .cta-body { flex: 1; }
+    .cta-card--stacked .cta-actions { width: 100%; gap: 0.45rem; margin-top: auto; }
+    .cta-heading { font-size: 1.1rem; margin-bottom: 0.35rem; }
+    .cta-eyebrow { margin-bottom: 0.35rem; }
+    .cta-copy { font-size: 0.82rem; line-height: 1.6; }
 
     /* ── MIDDLE COLUMN: sign up + articles ── */
     .col-middle .contact {
@@ -532,7 +539,6 @@
     .col-middle .contact-fine { text-align: left; margin-top: 0.85rem; }
 
     .col-middle .section-label { display: none; }
-    .col-middle .cta-card + .signup-card { margin-top: 1rem; }
 
     .signup-card {
       background: var(--paper);
@@ -540,6 +546,10 @@
       border-radius: 10px;
       padding: 1.75rem 1.5rem 1.6rem;
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
     }
     .signup-card .contact-title {
       text-align: center;
@@ -594,34 +604,20 @@
     }
     .col-right .callout-link { font-size: 0.66rem; }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 900px) {
       .columns {
-        grid-template-columns: 1fr 1fr;
-        max-width: 900px;
-        gap: 2rem;
+        display: block;
+        grid-template-rows: none;
+        padding: 0 1.5rem;
+        margin: 2.5rem auto 3.5rem;
       }
-      .col-right { grid-column: 1 / -1; }
-      .callout--stacked {
-        flex-direction: row;
-        align-items: center;
-        gap: 1.5rem;
-      }
-      .callout--stacked .callout-link { align-self: auto; }
-    }
-
-    @media (max-width: 720px) {
-      .columns {
-        grid-template-columns: 1fr;
-        gap: 2.75rem;
-        padding: 0 1.25rem;
-        margin: 3rem auto 3.5rem;
-      }
-      .col-right { grid-column: auto; }
-      .callout--stacked {
+      .col {
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        grid-row: auto;
+        gap: 1rem;
+        margin-bottom: 2rem;
       }
-      .callout--stacked .callout-link { align-self: flex-start; }
     }
 
     /* ── FOOTER ── */
