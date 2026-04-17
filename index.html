@@ -540,78 +540,48 @@
 
     .col-middle .section-label { display: none; }
 
-    .signup-card {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
+    .cta-card--signup {
       background: linear-gradient(145deg, #2a2823 0%, #0a0a08 100%);
-      border: none;
-      border-radius: 10px;
-      padding: 1.75rem 1.5rem 1.6rem;
-      text-align: center;
+    }
+
+    .signup-form {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      height: 100%;
-      color: #f7f3ea;
+      gap: 0.5rem;
+      width: 100%;
+      margin-top: auto;
     }
-    .signup-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 60%);
-      pointer-events: none;
-      z-index: -1;
-    }
-    .signup-card .contact-title {
-      text-align: center;
-      font-family: 'Newsreader', serif;
-      font-style: italic;
-      font-weight: 400;
-      letter-spacing: -0.015em;
-      font-size: clamp(1.55rem, 2.4vw, 1.9rem);
-      line-height: 1.2;
-      margin-bottom: 1.1rem;
-      color: #f7f3ea;
-    }
-    .signup-card .contact-form {
-      flex-direction: column;
-      gap: 0.55rem;
-      max-width: 380px;
-      margin: 0 auto;
-    }
-    .signup-card .contact-form input[type="email"] {
-      padding: 0.85rem 1rem;
-      font-size: 0.9rem;
-      text-align: center;
+    .signup-form input[type="email"] {
+      padding: 0.75rem 1rem;
+      font-size: 0.82rem;
       background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(247, 243, 234, 0.25);
+      border: 1px solid rgba(247, 243, 234, 0.22);
       color: #f7f3ea;
       border-radius: 999px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.15s ease, background 0.15s ease;
     }
-    .signup-card .contact-form input[type="email"]::placeholder {
-      color: rgba(247, 243, 234, 0.55);
-    }
-    .signup-card .contact-form input[type="email"]:focus {
-      border-color: rgba(247, 243, 234, 0.6);
+    .signup-form input[type="email"]::placeholder { color: rgba(247, 243, 234, 0.5); }
+    .signup-form input[type="email"]:focus {
+      border-color: rgba(247, 243, 234, 0.55);
       background: rgba(255, 255, 255, 0.12);
     }
-    .signup-card .contact-form button {
-      padding: 0.85rem 1.2rem;
-      font-size: 0.78rem;
+    .signup-form button {
+      padding: 0.7rem 1.15rem;
+      font-size: 0.74rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       background: #f7f3ea;
       color: #1c1b18;
+      border: none;
       border-radius: 999px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.15s ease, transform 0.15s ease;
     }
-    .signup-card .contact-form button:hover {
-      background: #fff;
-    }
-    .signup-card .contact-fine {
-      text-align: center;
-      font-size: 0.72rem;
-      color: rgba(247, 243, 234, 0.55);
-      margin-top: 0.85rem;
-    }
+    .signup-form button:hover { background: #fff; transform: translateY(-1px); }
 
     /* ── RIGHT COLUMN: related initiative callout ── */
     .callout--stacked {
@@ -890,12 +860,19 @@
       </div>
 
       <!-- ── SIGN UP ── -->
-      <section class="contact col-contact signup-card" id="contact">
-        <h2 class="contact-title">Stay in the conversation.</h2>
+      <section class="cta-card cta-card--signup cta-card--stacked" id="contact">
+        <div class="cta-body">
+          <div class="cta-eyebrow">Subscribe</div>
+          <h2 class="cta-heading">Stay in the Conversation</h2>
+          <p class="cta-copy">
+            Be first to read every new edition of the Engage Colorado
+            newsletter.
+          </p>
+        </div>
         <form
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
-          class="contact-form validate"
+          class="signup-form validate"
           action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
           method="post"
           target="_blank"
@@ -905,9 +882,8 @@
           <div style="position:absolute;left:-5000px" aria-hidden="true">
             <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
           </div>
-          <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
+          <button type="submit" name="subscribe" id="mc-embedded-subscribe">Subscribe</button>
         </form>
-        <p class="contact-fine">No spam. Unsubscribe anytime.</p>
       </section>
     </main>
 
