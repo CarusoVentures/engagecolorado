@@ -535,9 +535,10 @@
     .col-middle .cta-card + .signup-card { margin-top: 1rem; }
 
     .signup-card {
-      background: transparent;
-      border: none;
-      padding: 2rem 0 0;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 1.75rem 1.5rem 1.6rem;
       text-align: center;
     }
     .signup-card .contact-title {
@@ -546,17 +547,9 @@
       font-style: italic;
       font-weight: 400;
       letter-spacing: -0.015em;
-      font-size: clamp(1.75rem, 2.8vw, 2.15rem);
+      font-size: clamp(1.55rem, 2.4vw, 1.9rem);
       line-height: 1.2;
-      margin-bottom: 0.65rem;
-    }
-    .signup-card .contact-desc {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--mid);
-      line-height: 1.6;
-      margin: 0 auto 1.25rem;
-      max-width: 380px;
+      margin-bottom: 1.1rem;
     }
     .signup-card .contact-form {
       flex-direction: column;
@@ -872,9 +865,6 @@
       <!-- ── SIGN UP ── -->
       <section class="contact col-contact signup-card" id="contact">
         <h2 class="contact-title">Stay in the conversation.</h2>
-        <p class="contact-desc">
-          Get notified when new articles publish.
-        </p>
         <form
           id="mc-embedded-subscribe-form"
           name="mc-embedded-subscribe-form"
