@@ -158,6 +158,34 @@
       font-weight: 300;
     }
 
+    .loading-state {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+    .skeleton-tile {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 1.75rem 2rem;
+    }
+    .skeleton-line {
+      height: 0.8rem;
+      background: linear-gradient(90deg, rgba(0,0,0,0.04), rgba(0,0,0,0.09), rgba(0,0,0,0.04));
+      background-size: 200% 100%;
+      animation: shimmer 1.2s linear infinite;
+      border-radius: 3px;
+    }
+    .skeleton-line.pill { width: 32%; height: 0.75rem; margin-bottom: 1rem; }
+    .skeleton-line.title { width: 80%; height: 1.2rem; margin-bottom: 0.9rem; }
+    .skeleton-line.text { width: 100%; margin-bottom: 0.55rem; }
+    .skeleton-line.text.short { width: 60%; margin-bottom: 0; }
+
+    @keyframes shimmer {
+      0%   { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
     .site-footer {
       border-top: 1px solid var(--rule);
       padding: 2.5rem 2rem;
@@ -197,12 +225,19 @@
 
   <main class="page-main">
     <ul class="posts" id="posts">
-      <li class="empty-state" data-placeholder>
-        <h2>No articles yet.</h2>
-        <p>
-          The first edition is on its way. Head back home to subscribe and
-          be notified when it publishes.
-        </p>
+      <li class="loading-state" data-loading aria-hidden="true">
+        <div class="skeleton-tile">
+          <div class="skeleton-line pill"></div>
+          <div class="skeleton-line title"></div>
+          <div class="skeleton-line text"></div>
+          <div class="skeleton-line text short"></div>
+        </div>
+        <div class="skeleton-tile">
+          <div class="skeleton-line pill"></div>
+          <div class="skeleton-line title"></div>
+          <div class="skeleton-line text"></div>
+          <div class="skeleton-line text short"></div>
+        </div>
       </li>
     </ul>
   </main>
@@ -222,16 +257,37 @@
       const list = document.getElementById('posts');
       if (!list) return;
 
+      const loading = list.querySelector('[data-loading]');
+
+      function showEmptyState() {
+        list.innerHTML = '';
+        const li = document.createElement('li');
+        li.className = 'empty-state';
+        li.innerHTML =
+          '<h2>No articles yet.</h2>' +
+          '<p>The first edition is on its way. Head back home to subscribe and be notified when it publishes.</p>';
+        list.appendChild(li);
+      }
+
+      let campaigns = [];
       try {
         const res = await fetch('/api/newsletters');
-        if (!res.ok) return;
+        if (!res.ok) throw new Error('bad response');
         const data = await res.json();
-        const campaigns = (data && data.campaigns) || [];
-        if (!campaigns.length) return;
+        campaigns = (data && data.campaigns) || [];
+      } catch (err) {
+        showEmptyState();
+        return;
+      }
 
-        const placeholder = list.querySelector('[data-placeholder]');
-        if (placeholder) placeholder.remove();
+      if (!campaigns.length) {
+        showEmptyState();
+        return;
+      }
 
+      if (loading) loading.remove();
+
+      {
         const frag = document.createDocumentFragment();
         for (const c of campaigns) {
           const title = (c.title || 'Untitled').trim();
@@ -271,8 +327,6 @@
           frag.appendChild(li);
         }
         list.appendChild(frag);
-      } catch (err) {
-        // Silent fail — placeholder remains.
       }
 
       function formatDate(raw) {
