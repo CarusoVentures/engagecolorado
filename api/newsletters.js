@@ -25,7 +25,7 @@ module.exports = async function handler(req, res) {
   const url =
     `https://${dc}.api.mailchimp.com/3.0/campaigns` +
     `?status=sent&count=25&sort_field=send_time&sort_dir=DESC&list_id=${encodeURIComponent(listId)}` +
-    `&fields=campaigns.settings.subject_line,campaigns.settings.title,campaigns.settings.preview_text,campaigns.archive_url,campaigns.long_archive_url,campaigns.send_time`;
+    `&fields=campaigns.id,campaigns.settings.subject_line,campaigns.settings.title,campaigns.settings.preview_text,campaigns.archive_url,campaigns.long_archive_url,campaigns.send_time`;
 
   try {
     const r = await fetch(url, {
@@ -47,6 +47,7 @@ module.exports = async function handler(req, res) {
     const data = await r.json();
     const campaigns = (data.campaigns || [])
       .map((c) => ({
+        id: c.id || '',
         title:
           (c.settings && (c.settings.subject_line || c.settings.title)) || 'Untitled',
         link: c.archive_url || c.long_archive_url || '',
