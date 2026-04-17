@@ -457,11 +457,11 @@
     /* ── 3-COLUMN LAYOUT ── */
     .columns {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr) minmax(0, 1fr);
-      gap: 2.5rem;
-      max-width: 1180px;
-      margin: 4.5rem auto 5rem;
-      padding: 0 2rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 3rem;
+      max-width: 1440px;
+      margin: 4rem auto 5rem;
+      padding: 0 3rem;
       align-items: start;
     }
     .col { min-width: 0; }
@@ -473,9 +473,7 @@
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--light);
-      padding-bottom: 0.9rem;
-      margin: 0 0 1.4rem;
-      border-bottom: 1px solid var(--rule);
+      margin: 0 0 1.1rem;
       text-align: left;
     }
 
@@ -521,11 +519,8 @@
     .col-middle .contact-form button { width: 100%; padding: 0.85rem 1.4rem; }
     .col-middle .contact-fine { text-align: left; margin-top: 0.85rem; }
 
-    .col-middle .articles {
-      margin-top: 3rem;
-      padding-top: 2.25rem;
-      border-top: 1px solid var(--rule);
-    }
+    .col-middle .articles { margin-top: 0; }
+    .col-middle .contact { margin-top: 2.5rem; }
     .col-middle .section-label { display: none; }
     .col-middle .posts { gap: 1.25rem; }
     .col-middle .post-tile .post-body { padding: 1.5rem 1.6rem 1.6rem; }
@@ -804,6 +799,25 @@
     </aside>
 
     <main class="col col-middle">
+      <!-- ── LATEST ARTICLES ── -->
+      <section class="articles">
+        <div class="col-eyebrow">Latest articles</div>
+        <ul class="posts" id="posts">
+          <li class="post-tile" data-placeholder>
+            <a href="#contact">
+              <div class="post-body">
+                <span class="post-status">Coming Soon</span>
+                <h2 class="post-title">The First Test</h2>
+                <p class="post-excerpt">
+                  The inaugural piece from Engage Colorado is on its way. Check
+                  back shortly — or subscribe to be notified when it publishes.
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
       <!-- ── SIGN UP ── -->
       <section class="contact col-contact" id="contact">
         <div class="col-eyebrow">Sign up</div>
@@ -828,25 +842,6 @@
           <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
         </form>
         <p class="contact-fine">No spam. Unsubscribe anytime.</p>
-      </section>
-
-      <!-- ── LATEST ARTICLES ── -->
-      <section class="articles">
-        <div class="col-eyebrow">Latest articles</div>
-        <ul class="posts" id="posts">
-          <li class="post-tile" data-placeholder>
-            <a href="#contact">
-              <div class="post-body">
-                <span class="post-status">Coming Soon</span>
-                <h2 class="post-title">The First Test</h2>
-                <p class="post-excerpt">
-                  The inaugural piece from Engage Colorado is on its way. Check
-                  back shortly — or subscribe to be notified when it publishes.
-                </p>
-              </div>
-            </a>
-          </li>
-        </ul>
       </section>
     </main>
 
