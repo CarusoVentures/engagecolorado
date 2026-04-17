@@ -527,16 +527,48 @@
     .col-middle .contact-form button { width: 100%; padding: 0.85rem 1.4rem; }
     .col-middle .contact-fine { text-align: left; margin-top: 0.85rem; }
 
-    .col-middle .articles { margin-top: 0; }
-    .col-middle .contact { margin-top: 1.1rem; }
     .col-middle .section-label { display: none; }
-    .col-middle .posts { gap: 1rem; }
-    .col-middle .post-tile .post-body { padding: 1.15rem 1.25rem 1.15rem; }
-    .col-middle .post-tile .post-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
-    .col-middle .post-tile .post-status { margin-bottom: 0.8rem; font-size: 0.62rem; padding: 0.3rem 0.6rem; }
-    .col-middle .post-tile .post-excerpt { font-size: 0.85rem; line-height: 1.55; }
-    .col-middle .contact-title { font-size: clamp(1.3rem, 2vw, 1.55rem); margin-bottom: 0.45rem; }
-    .col-middle .contact-desc { font-size: 0.88rem; margin-bottom: 1rem; }
+
+    .signup-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 1.15rem 1.25rem 1.25rem;
+    }
+    .signup-card .cta-eyebrow {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: 0.4rem;
+    }
+    .signup-card .contact-title {
+      font-size: 1.25rem;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.45rem;
+    }
+    .signup-card .contact-desc {
+      font-size: 0.82rem;
+      color: var(--mid);
+      line-height: 1.55;
+      margin-bottom: 0.9rem;
+    }
+    .signup-card .contact-form input[type="email"] {
+      padding: 0.7rem 0.9rem;
+      font-size: 0.85rem;
+    }
+    .signup-card .contact-form button {
+      padding: 0.7rem 1rem;
+      font-size: 0.72rem;
+    }
+    .signup-card .contact-fine {
+      font-size: 0.68rem;
+      margin-top: 0.65rem;
+    }
 
     /* ── RIGHT COLUMN: related initiative callout ── */
     .callout--stacked {
@@ -810,28 +842,11 @@
     </aside>
 
     <main class="col col-middle">
-      <!-- ── LATEST ARTICLES ── -->
-      <section class="articles">
-        <a href="/articles.html" class="col-eyebrow col-eyebrow--link">Latest articles →</a>
-        <ul class="posts" id="posts">
-          <li class="post-tile" data-placeholder>
-            <a href="#contact">
-              <div class="post-body">
-                <span class="post-status">Coming Soon</span>
-                <h2 class="post-title">The First Test</h2>
-                <p class="post-excerpt">
-                  The inaugural piece is on its way. Subscribe to be notified
-                  when it publishes.
-                </p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </section>
+      <a href="/articles.html" class="col-eyebrow col-eyebrow--link">Latest articles →</a>
 
       <!-- ── SIGN UP ── -->
-      <section class="contact col-contact" id="contact">
-        <div class="col-eyebrow">Sign up</div>
+      <section class="contact col-contact signup-card" id="contact">
+        <div class="cta-eyebrow">Sign up</div>
         <h2 class="contact-title">Stay in the conversation.</h2>
         <p class="contact-desc">
           Get notified when new articles publish.
