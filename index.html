@@ -535,44 +535,48 @@
     .col-middle .cta-card + .signup-card { margin-top: 1rem; }
 
     .signup-card {
-      background: var(--paper);
-      border: 1px solid var(--rule);
-      border-radius: 8px;
-      padding: 1.15rem 1.25rem 1.25rem;
-    }
-    .signup-card .cta-eyebrow {
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-bottom: 0.4rem;
+      background: transparent;
+      border: none;
+      padding: 2rem 0 0;
+      text-align: center;
     }
     .signup-card .contact-title {
-      font-size: 1.25rem;
+      text-align: center;
       font-family: 'Newsreader', serif;
       font-style: italic;
       font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.45rem;
+      letter-spacing: -0.015em;
+      font-size: clamp(1.75rem, 2.8vw, 2.15rem);
+      line-height: 1.2;
+      margin-bottom: 0.65rem;
     }
     .signup-card .contact-desc {
-      font-size: 0.82rem;
+      text-align: center;
+      font-size: 0.92rem;
       color: var(--mid);
-      line-height: 1.55;
-      margin-bottom: 0.9rem;
+      line-height: 1.6;
+      margin: 0 auto 1.25rem;
+      max-width: 380px;
+    }
+    .signup-card .contact-form {
+      flex-direction: column;
+      gap: 0.55rem;
+      max-width: 380px;
+      margin: 0 auto;
     }
     .signup-card .contact-form input[type="email"] {
-      padding: 0.7rem 0.9rem;
-      font-size: 0.85rem;
+      padding: 0.85rem 1rem;
+      font-size: 0.9rem;
+      text-align: center;
     }
     .signup-card .contact-form button {
-      padding: 0.7rem 1rem;
-      font-size: 0.72rem;
+      padding: 0.85rem 1.2rem;
+      font-size: 0.78rem;
     }
     .signup-card .contact-fine {
-      font-size: 0.68rem;
-      margin-top: 0.65rem;
+      text-align: center;
+      font-size: 0.72rem;
+      margin-top: 0.85rem;
     }
 
     /* ── RIGHT COLUMN: related initiative callout ── */
@@ -867,7 +871,6 @@
 
       <!-- ── SIGN UP ── -->
       <section class="contact col-contact signup-card" id="contact">
-        <div class="cta-eyebrow">Sign up</div>
         <h2 class="contact-title">Stay in the conversation.</h2>
         <p class="contact-desc">
           Get notified when new articles publish.
