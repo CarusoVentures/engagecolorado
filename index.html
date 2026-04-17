@@ -566,17 +566,19 @@
         when new articles publish.
       </p>
       <form
-        class="contact-form"
+        id="mc-embedded-subscribe-form"
+        name="mc-embedded-subscribe-form"
+        class="contact-form validate"
         action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
         method="post"
         target="_blank"
         novalidate
       >
-        <input type="email" name="EMAIL" placeholder="you@example.com" required aria-label="Email address" />
+        <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="you@example.com" required aria-label="Email address" />
         <div style="position:absolute;left:-5000px" aria-hidden="true">
           <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
         </div>
-        <button type="submit">Subscribe</button>
+        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
       </form>
       <p class="contact-fine">No spam. Unsubscribe anytime.</p>
     </section>
