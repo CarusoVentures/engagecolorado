@@ -393,6 +393,10 @@
       background: linear-gradient(145deg, #3d6b56 0%, #1d3a2d 100%);
     }
 
+    .cta-card--articles {
+      background: linear-gradient(145deg, #b8833a 0%, #6e4818 100%);
+    }
+
     .cta-body {
       flex: 1;
       min-width: 0;
@@ -528,6 +532,7 @@
     .col-middle .contact-fine { text-align: left; margin-top: 0.85rem; }
 
     .col-middle .section-label { display: none; }
+    .col-middle .cta-card + .signup-card { margin-top: 1rem; }
 
     .signup-card {
       background: var(--paper);
@@ -842,7 +847,23 @@
     </aside>
 
     <main class="col col-middle">
-      <a href="/articles.html" class="col-eyebrow col-eyebrow--link">Latest articles →</a>
+      <div class="col-eyebrow">Read &amp; Subscribe</div>
+
+      <!-- ── LATEST ARTICLES TILE ── -->
+      <div class="cta-card cta-card--articles cta-card--stacked">
+        <div class="cta-body">
+          <div class="cta-eyebrow">Read</div>
+          <h2 class="cta-heading">Latest Articles</h2>
+          <p class="cta-copy">
+            Every edition of the Engage Colorado newsletter, in one place.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="cta-btn" href="/articles.html">
+            View All
+          </a>
+        </div>
+      </div>
 
       <!-- ── SIGN UP ── -->
       <section class="contact col-contact signup-card" id="contact">
