@@ -77,22 +77,23 @@
 
     .posts {
       list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
     }
 
-    .post-article {
+    .post-tile {
       background: var(--paper);
       border: 1px solid var(--rule);
-      border-radius: 6px;
-      overflow: hidden;
+      border-radius: 4px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
     }
-
-    .post-meta {
-      padding: 1.5rem 1.75rem 1.25rem;
-      border-bottom: 1px solid var(--rule);
+    .post-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 27, 24, 0.08);
+      border-color: rgba(45, 74, 62, 0.35);
     }
+    .post-tile a { display: block; padding: 1.75rem 2rem; }
 
     .post-status {
       display: inline-block;
@@ -105,7 +106,7 @@
       border: 1px solid rgba(45, 74, 62, 0.2);
       padding: 0.35rem 0.65rem;
       border-radius: 2px;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
     }
 
     .post-title {
@@ -115,7 +116,7 @@
       line-height: 1.25;
       letter-spacing: -0.015em;
       color: var(--ink);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.55rem;
     }
 
     .post-excerpt {
@@ -123,21 +124,15 @@
       color: var(--mid);
       font-weight: 300;
       line-height: 1.7;
+      margin-bottom: 0.85rem;
     }
 
-    .post-content-frame {
-      width: 100%;
-      border: 0;
-      display: block;
-      background: #fff;
-      min-height: 600px;
-    }
-
-    .post-loading {
-      padding: 2rem 1.75rem;
-      font-size: 0.9rem;
-      color: var(--light);
-      text-align: center;
+    .post-read-more {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     .empty-state {
@@ -239,96 +234,45 @@
 
         const frag = document.createDocumentFragment();
         for (const c of campaigns) {
-          frag.appendChild(renderArticle(c));
-        }
-        list.appendChild(frag);
+          const title = (c.title || 'Untitled').trim();
+          const id = (c.id || '').trim();
+          const date = formatDate(c.pubDate);
+          const excerpt = buildExcerpt(c.description);
 
-        // Load each article's HTML content from Mailchimp in parallel
-        document.querySelectorAll('[data-campaign-id]').forEach((el) => {
-          loadContent(el);
-        });
-      } catch (err) {
-        // Silent fail — placeholder remains.
-      }
+          const li = document.createElement('li');
+          li.className = 'post-tile';
 
-      function renderArticle(c) {
-        const title = (c.title || 'Untitled').trim();
-        const date = formatDate(c.pubDate);
-        const excerpt = buildExcerpt(c.description);
+          const a = document.createElement('a');
+          a.href = id ? `/article.html?id=${encodeURIComponent(id)}` : (c.link || '#');
 
-        const li = document.createElement('li');
-        li.className = 'post-article';
+          const status = document.createElement('span');
+          status.className = 'post-status';
+          status.textContent = date ? `Newsletter · ${date}` : 'Newsletter';
 
-        const meta = document.createElement('div');
-        meta.className = 'post-meta';
+          const h2 = document.createElement('h2');
+          h2.className = 'post-title';
+          h2.textContent = title;
 
-        const status = document.createElement('span');
-        status.className = 'post-status';
-        status.textContent = date ? `Newsletter · ${date}` : 'Newsletter';
-
-        const h2 = document.createElement('h2');
-        h2.className = 'post-title';
-        h2.textContent = title;
-
-        meta.appendChild(status);
-        meta.appendChild(h2);
-        if (excerpt) {
-          const p = document.createElement('p');
-          p.className = 'post-excerpt';
-          p.textContent = excerpt;
-          meta.appendChild(p);
-        }
-
-        li.appendChild(meta);
-
-        const slot = document.createElement('div');
-        slot.className = 'post-loading';
-        slot.dataset.campaignId = c.id || '';
-        slot.textContent = 'Loading article…';
-        li.appendChild(slot);
-
-        return li;
-      }
-
-      async function loadContent(slot) {
-        const id = slot.dataset.campaignId;
-        if (!id) {
-          slot.textContent = '';
-          return;
-        }
-        try {
-          const res = await fetch(`/api/campaign?id=${encodeURIComponent(id)}`);
-          if (!res.ok) throw new Error('bad response');
-          const data = await res.json();
-          if (!data.html) {
-            slot.textContent = '';
-            return;
+          a.appendChild(status);
+          a.appendChild(h2);
+          if (excerpt) {
+            const p = document.createElement('p');
+            p.className = 'post-excerpt';
+            p.textContent = excerpt;
+            a.appendChild(p);
           }
 
-          const iframe = document.createElement('iframe');
-          iframe.className = 'post-content-frame';
-          iframe.setAttribute('sandbox', 'allow-same-origin allow-popups allow-popups-to-escape-sandbox');
-          iframe.setAttribute('title', 'Newsletter content');
-          iframe.srcdoc = data.html;
+          const more = document.createElement('span');
+          more.className = 'post-read-more';
+          more.textContent = 'Read →';
+          a.appendChild(more);
 
-          iframe.addEventListener('load', () => {
-            try {
-              const doc = iframe.contentDocument;
-              if (!doc) return;
-              const height = Math.max(
-                doc.documentElement.scrollHeight,
-                doc.body ? doc.body.scrollHeight : 0
-              );
-              if (height) iframe.style.height = height + 32 + 'px';
-            } catch (_) {
-              // cross-origin, ignore
-            }
-          });
-
-          slot.replaceWith(iframe);
-        } catch (e) {
-          slot.textContent = '';
+          li.appendChild(a);
+          frag.appendChild(li);
         }
+        list.appendChild(frag);
+      } catch (err) {
+        // Silent fail — placeholder remains.
       }
 
       function formatDate(raw) {
@@ -341,8 +285,8 @@
       function buildExcerpt(desc) {
         if (!desc) return '';
         const text = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
-        if (text.length <= 260) return text;
-        return text.slice(0, 260).replace(/\s+\S*$/, '') + '…';
+        if (text.length <= 220) return text;
+        return text.slice(0, 220).replace(/\s+\S*$/, '') + '…';
       }
     })();
   </script>
