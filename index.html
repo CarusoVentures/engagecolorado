@@ -454,6 +454,75 @@
       .cta-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
 
+    /* ── 3-COLUMN LAYOUT ── */
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1.7fr 1fr;
+      gap: 2rem;
+      max-width: 1240px;
+      margin: 3.5rem auto 4rem;
+      padding: 0 2rem;
+      align-items: start;
+    }
+    .col { min-width: 0; }
+
+    .col-middle { padding: 0; margin: 0; max-width: none; }
+    .col-middle .contact,
+    .col-middle .articles { max-width: none; }
+    .col-middle .contact {
+      border-top: none;
+      margin-top: 0;
+      padding: 0 0 2rem;
+      text-align: left;
+    }
+    .col-middle .contact-form { margin: 0; max-width: none; }
+    .col-middle .articles {
+      border-top: 1px solid var(--rule);
+      margin-top: 2rem;
+      padding-top: 2.5rem;
+    }
+    .col-section-label {
+      padding: 0 0 1.5rem !important;
+      text-align: left !important;
+    }
+
+    /* Stacked CTA card for narrow columns */
+    .cta-card--stacked {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1.4rem 1.4rem 1.25rem;
+    }
+    .cta-card--stacked .cta-actions { width: 100%; }
+    .col-left .cta-card + .cta-card { margin-top: 1rem; }
+
+    /* Stacked callout for narrow right column */
+    .callout--stacked {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin: 0;
+      padding: 1.5rem 1.5rem 1.25rem;
+    }
+    .callout--stacked .callout-link { align-self: flex-start; }
+
+    @media (max-width: 1024px) {
+      .columns {
+        grid-template-columns: 1fr 1fr;
+        max-width: 880px;
+      }
+      .col-right { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 720px) {
+      .columns {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 0 1.25rem;
+      }
+      .col-right { grid-column: auto; }
+    }
+
     /* ── FOOTER ── */
     .site-footer {
       border-top: 1px solid var(--rule);
@@ -628,111 +697,115 @@
     </div>
   </section>
 
-  <div class="cta-pair">
-    <div class="cta-card cta-card--podcast">
-      <div class="cta-body">
-        <div class="cta-eyebrow">Listen</div>
-        <h2 class="cta-heading">The Bear Roars</h2>
-        <p class="cta-copy">
-          Candid conversations with the founders, operators, and policymakers
-          shaping Colorado's innovation future.
-        </p>
-      </div>
-      <div class="cta-actions">
-        <a class="cta-btn" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
-          Spotify
-        </a>
-        <a class="cta-btn cta-btn--ghost" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
-          Apple
-        </a>
-        <a class="cta-btn cta-btn--ghost" href="https://www.youtube.com/@TheBearRoars" target="_blank" rel="noopener">
-          YouTube
-        </a>
-      </div>
-    </div>
+  <div class="columns">
 
-    <div class="cta-card cta-card--festival">
-      <div class="cta-body">
-        <div class="cta-eyebrow">Live Event</div>
-        <h2 class="cta-heading">Boulder Roots Fest</h2>
-        <p class="cta-copy">
-          A summer celebration of Colorado's creative community and the
-          artists who call the Front Range home. Grab tickets before they
-          sell out.
-        </p>
-      </div>
-      <div class="cta-actions">
-        <a class="cta-btn" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
-          Buy Tickets
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <main class="main">
-
-    <span class="section-label">Latest articles</span>
-
-    <ul class="posts" id="posts">
-      <li class="post-tile" data-placeholder>
-        <a href="#contact">
-          <div class="post-body">
-            <span class="post-status">Coming Soon</span>
-            <h2 class="post-title">The First Test</h2>
-            <p class="post-excerpt">
-              The inaugural piece from Engage Colorado is on its way. Check back
-              shortly — or subscribe below to be notified when it publishes.
-            </p>
-          </div>
-        </a>
-      </li>
-    </ul>
-
-    <!-- ── GET IN TOUCH ── -->
-    <section class="contact" id="contact">
-      <div class="contact-label">Get in touch</div>
-      <h2 class="contact-title">Stay in the conversation.</h2>
-      <p class="contact-desc">
-        Enter your email to learn more about Engage Colorado and be notified
-        when new articles publish.
-      </p>
-      <form
-        id="mc-embedded-subscribe-form"
-        name="mc-embedded-subscribe-form"
-        class="contact-form validate"
-        action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
-        method="post"
-        target="_blank"
-        novalidate
-      >
-        <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="you@example.com" required aria-label="Email address" />
-        <div style="position:absolute;left:-5000px" aria-hidden="true">
-          <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
+    <aside class="col col-left">
+      <div class="cta-card cta-card--podcast cta-card--stacked">
+        <div class="cta-body">
+          <div class="cta-eyebrow">Listen</div>
+          <h2 class="cta-heading">The Bear Roars</h2>
+          <p class="cta-copy">
+            Candid conversations with the founders, operators, and policymakers
+            shaping Colorado's innovation future.
+          </p>
         </div>
-        <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
-      </form>
-      <p class="contact-fine">No spam. Unsubscribe anytime.</p>
-    </section>
-
-    <div class="callout">
-      <div class="callout-body">
-        <div class="callout-label">Related Initiative</div>
-        <h2 class="callout-title">Ensuring Colorado.</h2>
-        <span class="callout-desc">
-          Read the Open Letter, written by a bipartisan coalition of Colorado
-          tech and business leaders representing founders, investors, and
-          operators across the state — who are deeply concerned that the
-          direction we are heading threatens the long-term prosperity of the
-          people who call Colorado home.
-        </span>
+        <div class="cta-actions">
+          <a class="cta-btn" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
+            Spotify
+          </a>
+          <a class="cta-btn cta-btn--ghost" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
+            Apple
+          </a>
+          <a class="cta-btn cta-btn--ghost" href="https://www.youtube.com/@TheBearRoars" target="_blank" rel="noopener">
+            YouTube
+          </a>
+        </div>
       </div>
-      <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
-        Read the Open Letter →
-      </a>
-    </div>
 
+      <div class="cta-card cta-card--festival cta-card--stacked">
+        <div class="cta-body">
+          <div class="cta-eyebrow">Live Event</div>
+          <h2 class="cta-heading">Boulder Roots Fest</h2>
+          <p class="cta-copy">
+            A summer celebration of Colorado's creative community and the
+            artists who call the Front Range home.
+          </p>
+        </div>
+        <div class="cta-actions">
+          <a class="cta-btn" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
+            Buy Tickets
+          </a>
+        </div>
+      </div>
+    </aside>
 
-  </main>
+    <main class="col col-middle">
+      <!-- ── SIGN UP ── -->
+      <section class="contact col-contact" id="contact">
+        <div class="contact-label">Sign up</div>
+        <h2 class="contact-title">Stay in the conversation.</h2>
+        <p class="contact-desc">
+          Enter your email to learn more about Engage Colorado and be notified
+          when new articles publish.
+        </p>
+        <form
+          id="mc-embedded-subscribe-form"
+          name="mc-embedded-subscribe-form"
+          class="contact-form validate"
+          action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
+          method="post"
+          target="_blank"
+          novalidate
+        >
+          <input type="email" name="EMAIL" id="mce-EMAIL" class="required email" placeholder="you@example.com" required aria-label="Email address" />
+          <div style="position:absolute;left:-5000px" aria-hidden="true">
+            <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
+          </div>
+          <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="button">Subscribe</button>
+        </form>
+        <p class="contact-fine">No spam. Unsubscribe anytime.</p>
+      </section>
+
+      <!-- ── LATEST ARTICLES ── -->
+      <section class="articles">
+        <span class="section-label col-section-label">Latest articles</span>
+        <ul class="posts" id="posts">
+          <li class="post-tile" data-placeholder>
+            <a href="#contact">
+              <div class="post-body">
+                <span class="post-status">Coming Soon</span>
+                <h2 class="post-title">The First Test</h2>
+                <p class="post-excerpt">
+                  The inaugural piece from Engage Colorado is on its way. Check
+                  back shortly — or subscribe to be notified when it publishes.
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <aside class="col col-right">
+      <div class="callout callout--stacked">
+        <div class="callout-body">
+          <div class="callout-label">Related Initiative</div>
+          <h2 class="callout-title">Ensuring Colorado.</h2>
+          <span class="callout-desc">
+            Read the Open Letter, written by a bipartisan coalition of Colorado
+            tech and business leaders representing founders, investors, and
+            operators across the state — who are deeply concerned that the
+            direction we are heading threatens the long-term prosperity of the
+            people who call Colorado home.
+          </span>
+        </div>
+        <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
+          Read the Open Letter →
+        </a>
+      </div>
+    </aside>
+
+  </div>
 
   <footer class="site-footer">
     <div class="footer-logo">Engage Colorado</div>
