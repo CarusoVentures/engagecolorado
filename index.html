@@ -541,8 +541,11 @@
     .col-middle .section-label { display: none; }
 
     .signup-card {
-      background: var(--paper);
-      border: 1px solid var(--rule);
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(145deg, #2a2823 0%, #0a0a08 100%);
+      border: none;
       border-radius: 10px;
       padding: 1.75rem 1.5rem 1.6rem;
       text-align: center;
@@ -550,6 +553,15 @@
       flex-direction: column;
       justify-content: center;
       height: 100%;
+      color: #f7f3ea;
+    }
+    .signup-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.12), transparent 60%);
+      pointer-events: none;
+      z-index: -1;
     }
     .signup-card .contact-title {
       text-align: center;
@@ -560,6 +572,7 @@
       font-size: clamp(1.55rem, 2.4vw, 1.9rem);
       line-height: 1.2;
       margin-bottom: 1.1rem;
+      color: #f7f3ea;
     }
     .signup-card .contact-form {
       flex-direction: column;
@@ -571,14 +584,32 @@
       padding: 0.85rem 1rem;
       font-size: 0.9rem;
       text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(247, 243, 234, 0.25);
+      color: #f7f3ea;
+      border-radius: 999px;
+    }
+    .signup-card .contact-form input[type="email"]::placeholder {
+      color: rgba(247, 243, 234, 0.55);
+    }
+    .signup-card .contact-form input[type="email"]:focus {
+      border-color: rgba(247, 243, 234, 0.6);
+      background: rgba(255, 255, 255, 0.12);
     }
     .signup-card .contact-form button {
       padding: 0.85rem 1.2rem;
       font-size: 0.78rem;
+      background: #f7f3ea;
+      color: #1c1b18;
+      border-radius: 999px;
+    }
+    .signup-card .contact-form button:hover {
+      background: #fff;
     }
     .signup-card .contact-fine {
       text-align: center;
       font-size: 0.72rem;
+      color: rgba(247, 243, 234, 0.55);
       margin-top: 0.85rem;
     }
 
