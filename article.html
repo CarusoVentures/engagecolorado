@@ -487,9 +487,9 @@
 
         const iframe = document.createElement('iframe');
         iframe.className = 'article-frame';
-        iframe.setAttribute('sandbox', 'allow-same-origin allow-popups allow-popups-to-escape-sandbox');
+        iframe.setAttribute('sandbox', 'allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation');
         iframe.setAttribute('title', 'Newsletter content');
-        iframe.srcdoc = data.html;
+        iframe.srcdoc = injectBaseTarget(data.html);
 
         iframe.addEventListener('load', () => {
           try {
@@ -516,6 +516,21 @@
         const d = new Date(raw);
         if (isNaN(d.getTime())) return '';
         return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      function injectBaseTarget(html) {
+        if (!html) return html;
+        const baseTag = '<base target="_blank" rel="noopener">';
+        if (/<base\b/i.test(html)) {
+          return html.replace(/<base\b[^>]*>/i, baseTag);
+        }
+        if (/<head\b[^>]*>/i.test(html)) {
+          return html.replace(/<head\b[^>]*>/i, (m) => m + baseTag);
+        }
+        if (/<html\b[^>]*>/i.test(html)) {
+          return html.replace(/<html\b[^>]*>/i, (m) => m + '<head>' + baseTag + '</head>');
+        }
+        return '<head>' + baseTag + '</head>' + html;
       }
     })();
   </script>
