@@ -281,84 +281,91 @@
 
     /* ── CTA PAIR (distinct from page) ── */
     .cta-pair {
-      margin: 4rem 0 2rem;
+      margin: 3rem 0 1.5rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.25rem;
+      gap: 0.9rem;
     }
 
     .cta-card {
       position: relative;
-      padding: 2.25rem 2rem 2rem;
-      border-radius: 10px;
+      padding: 1rem 1.15rem;
+      border-radius: 8px;
       color: #f7f3ea;
       overflow: hidden;
       isolation: isolate;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
     }
 
     .cta-card::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 60%);
+      background: radial-gradient(circle at top right, rgba(255,255,255,0.15), transparent 60%);
       pointer-events: none;
       z-index: -1;
     }
 
     .cta-card--podcast {
-      background: linear-gradient(145deg, #c9541f 0%, #8a2f1a 100%);
+      background: linear-gradient(145deg, #6c5a88 0%, #3f2f5a 100%);
     }
 
     .cta-card--festival {
       background: linear-gradient(145deg, #1e4b8f 0%, #0f2a52 100%);
     }
 
+    .cta-body {
+      flex: 1;
+      min-width: 0;
+    }
+
     .cta-eyebrow {
-      font-size: 0.66rem;
+      font-size: 0.58rem;
       font-weight: 700;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.78);
-      margin-bottom: 1rem;
+      color: rgba(255, 255, 255, 0.72);
+      margin-bottom: 0.3rem;
     }
 
     .cta-heading {
       font-family: 'Newsreader', serif;
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(1.7rem, 3vw, 2.15rem);
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      margin-bottom: 0.9rem;
+      font-size: 1.1rem;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.15rem;
     }
 
     .cta-copy {
-      font-size: 0.92rem;
+      font-size: 0.78rem;
       font-weight: 300;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.82);
-      margin-bottom: 1.75rem;
-      flex: 1;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.78);
     }
 
     .cta-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.6rem;
+      gap: 0.4rem;
+      flex-shrink: 0;
     }
 
     .cta-btn {
       display: inline-block;
-      padding: 0.7rem 1.15rem;
+      padding: 0.45rem 0.85rem;
       background: #f7f3ea;
       color: #1c1b18;
-      font-size: 0.74rem;
+      font-size: 0.66rem;
       font-weight: 600;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       border-radius: 999px;
+      white-space: nowrap;
       transition: transform 0.15s ease, background 0.15s ease;
     }
     .cta-btn:hover { transform: translateY(-1px); background: #fff; }
@@ -366,12 +373,13 @@
     .cta-btn--ghost {
       background: transparent;
       color: #f7f3ea;
-      border: 1px solid rgba(247, 243, 234, 0.5);
+      border: 1px solid rgba(247, 243, 234, 0.45);
     }
     .cta-btn--ghost:hover { background: rgba(247, 243, 234, 0.12); }
 
     @media (max-width: 720px) {
       .cta-pair { grid-template-columns: 1fr; }
+      .cta-card { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
     }
 
     /* ── FOOTER ── */
@@ -598,29 +606,25 @@
 
     <div class="cta-pair">
       <div class="cta-card cta-card--podcast">
-        <div class="cta-eyebrow">Listen</div>
-        <h2 class="cta-heading">The Bear Roars</h2>
-        <p class="cta-copy">
-          Conversations with the founders, operators, and policymakers shaping
-          Colorado's innovation future.
-        </p>
+        <div class="cta-body">
+          <div class="cta-eyebrow">Listen</div>
+          <h2 class="cta-heading">The Bear Roars</h2>
+        </div>
         <div class="cta-actions">
           <a class="cta-btn" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
             Spotify
           </a>
           <a class="cta-btn cta-btn--ghost" href="https://podcasts.apple.com/us/podcast/the-bear-roars/id1767464743" target="_blank" rel="noopener">
-            Apple Podcasts
+            Apple
           </a>
         </div>
       </div>
 
       <div class="cta-card cta-card--festival">
-        <div class="cta-eyebrow">Live Event</div>
-        <h2 class="cta-heading">Boulder Roots Music Festival</h2>
-        <p class="cta-copy">
-          Celebrate Colorado's creative community. Grab your tickets before
-          they sell out.
-        </p>
+        <div class="cta-body">
+          <div class="cta-eyebrow">Live Event</div>
+          <h2 class="cta-heading">Boulder Roots Fest</h2>
+        </div>
         <div class="cta-actions">
           <a class="cta-btn" href="https://www.boulderrootsmusicfest.org/tickets" target="_blank" rel="noopener">
             Buy Tickets
