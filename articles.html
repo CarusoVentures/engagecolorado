@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articles — Engage Colorado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400;1,6..72,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #f5f0e6;
+      --paper:   #faf6ec;
+      --ink:     #1c1b18;
+      --mid:     #5a5650;
+      --light:   #8a857a;
+      --rule:    #d8d0c0;
+      --accent:  #2d4a3e;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .page-header {
+      padding: 3.5rem 2rem 2.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .back-link {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 1.5rem;
+      transition: color 0.15s ease;
+    }
+    .back-link:hover { color: var(--ink); }
+
+    .page-title {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 0.85rem;
+    }
+
+    .page-subtitle {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .page-main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3.5rem 2rem 5rem;
+    }
+
+    .posts {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .post-tile {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .post-tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(28, 27, 24, 0.08);
+    }
+    .post-tile a { display: block; padding: 1.75rem 2rem; }
+
+    .post-status {
+      display: inline-block;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(45, 74, 62, 0.08);
+      border: 1px solid rgba(45, 74, 62, 0.2);
+      padding: 0.35rem 0.65rem;
+      border-radius: 2px;
+      margin-bottom: 0.9rem;
+    }
+
+    .post-title {
+      font-family: 'Newsreader', serif;
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin-bottom: 0.55rem;
+    }
+
+    .post-excerpt {
+      font-size: 0.92rem;
+      color: var(--mid);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      border: 1px dashed var(--rule);
+      border-radius: 4px;
+      background: var(--paper);
+    }
+    .empty-state h2 {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 0.65rem;
+    }
+    .empty-state p {
+      font-size: 0.92rem;
+      color: var(--mid);
+      max-width: 440px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--rule);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .footer-disclaimer {
+      font-size: 0.75rem;
+      color: var(--light);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 580px) {
+      .page-header { padding: 2.5rem 1.25rem 2rem; }
+      .page-main { padding: 2.5rem 1.25rem 3.5rem; }
+      .post-tile a { padding: 1.35rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <a href="/" class="back-link">← Engage Colorado</a>
+    <h1 class="page-title">Articles</h1>
+    <p class="page-subtitle">
+      Every edition of the Engage Colorado newsletter, published through Mailchimp.
+    </p>
+  </header>
+
+  <main class="page-main">
+    <ul class="posts" id="posts">
+      <li class="empty-state" data-placeholder>
+        <h2>No articles yet.</h2>
+        <p>
+          The first edition is on its way. Head back home to subscribe and
+          be notified when it publishes.
+        </p>
+      </li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-logo">Engage Colorado</div>
+    <p class="footer-disclaimer">
+      An independent publishing platform. Views are those of individual authors.
+    </p>
+  </footer>
+
+  <script>
+    (async () => {
+      const list = document.getElementById('posts');
+      if (!list) return;
+
+      try {
+        const res = await fetch('/api/newsletters');
+        if (!res.ok) return;
+        const data = await res.json();
+        const campaigns = (data && data.campaigns) || [];
+        if (!campaigns.length) return;
+
+        const placeholder = list.querySelector('[data-placeholder]');
+        if (placeholder) placeholder.remove();
+
+        const frag = document.createDocumentFragment();
+        for (const c of campaigns) {
+          const title = (c.title || 'Untitled').trim();
+          const link = (c.link || '#').trim();
+          const date = formatDate(c.pubDate);
+          const excerpt = buildExcerpt(c.description);
+
+          const li = document.createElement('li');
+          li.className = 'post-tile';
+
+          const a = document.createElement('a');
+          a.href = link;
+          a.target = '_blank';
+          a.rel = 'noopener';
+
+          const status = document.createElement('span');
+          status.className = 'post-status';
+          status.textContent = date ? `Newsletter · ${date}` : 'Newsletter';
+
+          const h2 = document.createElement('h2');
+          h2.className = 'post-title';
+          h2.textContent = title;
+
+          const p = document.createElement('p');
+          p.className = 'post-excerpt';
+          p.textContent = excerpt;
+
+          a.appendChild(status);
+          a.appendChild(h2);
+          if (excerpt) a.appendChild(p);
+          li.appendChild(a);
+          frag.appendChild(li);
+        }
+        list.appendChild(frag);
+      } catch (err) {
+        // Silent fail — placeholder remains.
+      }
+
+      function formatDate(raw) {
+        if (!raw) return '';
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      function buildExcerpt(desc) {
+        if (!desc) return '';
+        const text = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        if (text.length <= 260) return text;
+        return text.slice(0, 260).replace(/\s+\S*$/, '') + '…';
+      }
+    })();
+  </script>
+
+</body>
+</html>

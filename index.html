@@ -389,6 +389,10 @@
       background: linear-gradient(145deg, #1e4b8f 0%, #0f2a52 100%);
     }
 
+    .cta-card--initiative {
+      background: linear-gradient(145deg, #3d6b56 0%, #1d3a2d 100%);
+    }
+
     .cta-body {
       flex: 1;
       min-width: 0;
@@ -468,6 +472,7 @@
 
     /* Unified column eyebrow (section header) */
     .col-eyebrow {
+      display: block;
       font-size: 0.66rem;
       font-weight: 600;
       letter-spacing: 0.22em;
@@ -475,7 +480,10 @@
       color: var(--light);
       margin: 0 0 1.1rem;
       text-align: left;
+      text-decoration: none;
     }
+    a.col-eyebrow--link { transition: color 0.15s ease; }
+    a.col-eyebrow--link:hover { color: var(--ink); }
 
     /* ── LEFT COLUMN: stacked CTA cards ── */
     .cta-card--stacked {
@@ -520,11 +528,15 @@
     .col-middle .contact-fine { text-align: left; margin-top: 0.85rem; }
 
     .col-middle .articles { margin-top: 0; }
-    .col-middle .contact { margin-top: 2.5rem; }
+    .col-middle .contact { margin-top: 1.1rem; }
     .col-middle .section-label { display: none; }
-    .col-middle .posts { gap: 1.25rem; }
-    .col-middle .post-tile .post-body { padding: 1.5rem 1.6rem 1.6rem; }
-    .col-middle .post-tile .post-title { font-size: 1.35rem; }
+    .col-middle .posts { gap: 1rem; }
+    .col-middle .post-tile .post-body { padding: 1.15rem 1.25rem 1.15rem; }
+    .col-middle .post-tile .post-title { font-size: 1.15rem; margin-bottom: 0.35rem; }
+    .col-middle .post-tile .post-status { margin-bottom: 0.8rem; font-size: 0.62rem; padding: 0.3rem 0.6rem; }
+    .col-middle .post-tile .post-excerpt { font-size: 0.85rem; line-height: 1.55; }
+    .col-middle .contact-title { font-size: clamp(1.3rem, 2vw, 1.55rem); margin-bottom: 0.45rem; }
+    .col-middle .contact-desc { font-size: 0.88rem; margin-bottom: 1rem; }
 
     /* ── RIGHT COLUMN: related initiative callout ── */
     .callout--stacked {
@@ -800,7 +812,7 @@
     <main class="col col-middle">
       <!-- ── LATEST ARTICLES ── -->
       <section class="articles">
-        <div class="col-eyebrow">Latest articles</div>
+        <a href="/articles.html" class="col-eyebrow col-eyebrow--link">Latest articles →</a>
         <ul class="posts" id="posts">
           <li class="post-tile" data-placeholder>
             <a href="#contact">
@@ -808,8 +820,8 @@
                 <span class="post-status">Coming Soon</span>
                 <h2 class="post-title">The First Test</h2>
                 <p class="post-excerpt">
-                  The inaugural piece from Engage Colorado is on its way. Check
-                  back shortly — or subscribe to be notified when it publishes.
+                  The inaugural piece is on its way. Subscribe to be notified
+                  when it publishes.
                 </p>
               </div>
             </a>
@@ -822,8 +834,7 @@
         <div class="col-eyebrow">Sign up</div>
         <h2 class="contact-title">Stay in the conversation.</h2>
         <p class="contact-desc">
-          Enter your email to learn more about Engage Colorado and be notified
-          when new articles publish.
+          Get notified when new articles publish.
         </p>
         <form
           id="mc-embedded-subscribe-form"
@@ -846,21 +857,22 @@
 
     <aside class="col col-right">
       <div class="col-eyebrow">Related Initiative</div>
-      <div class="callout callout--stacked">
-        <div class="callout-body">
-          <div class="callout-label">Related Initiative</div>
-          <h2 class="callout-title">Ensuring Colorado.</h2>
-          <span class="callout-desc">
-            Read the Open Letter, written by a bipartisan coalition of Colorado
-            tech and business leaders representing founders, investors, and
-            operators across the state — who are deeply concerned that the
-            direction we are heading threatens the long-term prosperity of the
-            people who call Colorado home.
-          </span>
+      <div class="cta-card cta-card--initiative cta-card--stacked">
+        <div class="cta-body">
+          <div class="cta-eyebrow">Open Letter</div>
+          <h2 class="cta-heading">Ensuring Colorado</h2>
+          <p class="cta-copy">
+            A bipartisan coalition of Colorado tech and business leaders —
+            founders, investors, and operators across the state — making the
+            case for the long-term prosperity of the people who call Colorado
+            home.
+          </p>
         </div>
-        <a class="callout-link" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
-          Read the Open Letter →
-        </a>
+        <div class="cta-actions">
+          <a class="cta-btn" href="https://ensuringcolorado.com" target="_blank" rel="noopener">
+            Read the Letter
+          </a>
+        </div>
       </div>
     </aside>
 
