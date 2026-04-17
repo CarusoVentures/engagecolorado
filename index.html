@@ -542,13 +542,9 @@
 
     <span class="section-label">Latest articles</span>
 
-    <ul class="posts">
-      <li class="post-tile">
-        <!--
-          MAILCHIMP: When the post is live, replace `href="#"` below with your
-          Mailchimp campaign/archive URL. See notes at the bottom of the file.
-        -->
-        <a href="#">
+    <ul class="posts" id="posts">
+      <li class="post-tile" data-placeholder>
+        <a href="#contact">
           <div class="post-body">
             <span class="post-status">Coming Soon</span>
             <h2 class="post-title">The First Test</h2>
@@ -569,23 +565,16 @@
         Enter your email to learn more about Engage Colorado and be notified
         when new articles publish.
       </p>
-      <!--
-        MAILCHIMP: Replace the action URL below with your Mailchimp form action.
-        1. Mailchimp → Audience → Signup forms → Embedded forms
-        2. Copy the `action` URL from the generated <form> tag
-        3. Replace the honeypot field name `b_REPLACE_REPLACE` with the value
-           from your embed code (starts with `b_`) to prevent spam bots.
-      -->
       <form
         class="contact-form"
-        action="https://YOUR-LIST.list-manage.com/subscribe/post?u=REPLACE&amp;id=REPLACE"
+        action="https://engageboulder.us18.list-manage.com/subscribe/post?u=3bfb0e6816958c8055d40bf48&amp;id=3baceb2cd8&amp;f_id=007fabe6f0"
         method="post"
         target="_blank"
         novalidate
       >
         <input type="email" name="EMAIL" placeholder="you@example.com" required aria-label="Email address" />
         <div style="position:absolute;left:-5000px" aria-hidden="true">
-          <input type="text" name="b_REPLACE_REPLACE" tabindex="-1" value="" />
+          <input type="text" name="b_3bfb0e6816958c8055d40bf48_3baceb2cd8" tabindex="-1" value="" />
         </div>
         <button type="submit">Subscribe</button>
       </form>
@@ -658,6 +647,79 @@
       An independent publishing platform. Views are those of individual authors.
     </p>
   </footer>
+
+  <script>
+    (async () => {
+      const list = document.getElementById('posts');
+      if (!list) return;
+
+      try {
+        const res = await fetch('/api/newsletters');
+        if (!res.ok) return;
+        const data = await res.json();
+        const campaigns = (data && data.campaigns) || [];
+        if (!campaigns.length) return;
+
+        const placeholder = list.querySelector('[data-placeholder]');
+        if (placeholder) placeholder.remove();
+
+        const frag = document.createDocumentFragment();
+        for (const c of campaigns) {
+          const title = (c.title || 'Untitled').trim();
+          const link = (c.link || '#').trim();
+          const date = formatDate(c.pubDate);
+          const excerpt = buildExcerpt(c.description);
+
+          const li = document.createElement('li');
+          li.className = 'post-tile';
+
+          const a = document.createElement('a');
+          a.href = link;
+          a.target = '_blank';
+          a.rel = 'noopener';
+
+          const body = document.createElement('div');
+          body.className = 'post-body';
+
+          const status = document.createElement('span');
+          status.className = 'post-status';
+          status.textContent = date ? `Newsletter · ${date}` : 'Newsletter';
+
+          const h2 = document.createElement('h2');
+          h2.className = 'post-title';
+          h2.textContent = title;
+
+          const p = document.createElement('p');
+          p.className = 'post-excerpt';
+          p.textContent = excerpt;
+
+          body.appendChild(status);
+          body.appendChild(h2);
+          if (excerpt) body.appendChild(p);
+          a.appendChild(body);
+          li.appendChild(a);
+          frag.appendChild(li);
+        }
+        list.appendChild(frag);
+      } catch (err) {
+        // Silent fail — placeholder remains.
+      }
+
+      function formatDate(raw) {
+        if (!raw) return '';
+        const d = new Date(raw);
+        if (isNaN(d.getTime())) return '';
+        return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      }
+
+      function buildExcerpt(desc) {
+        if (!desc) return '';
+        const text = desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+        if (text.length <= 220) return text;
+        return text.slice(0, 220).replace(/\s+\S*$/, '') + '…';
+      }
+    })();
+  </script>
 
 </body>
 </html>
