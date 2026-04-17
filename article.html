@@ -230,8 +230,7 @@
       <a class="site-logo" href="index.html">Engage Colorado</a>
       <div class="nav-links">
         <a href="articles.html">Articles</a>
-        <a href="about.html">About</a>
-        <a href="index.html#newsletter" class="nav-subscribe">Subscribe</a>
+        <a href="#" class="nav-subscribe" id="navSubscribe">Subscribe</a>
       </div>
     </div>
   </nav>
@@ -271,6 +270,36 @@
       </div>
     </div>
   </footer>
+
+  <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/3bfb0e6816958c8055d40bf48/70c98f348aadaf8e1369bb670.js");</script>
+
+  <script>
+    (function () {
+      const btn = document.getElementById('navSubscribe');
+      if (!btn) return;
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        // Clear Mailchimp popup cookies so the popup re-appears on demand
+        document.cookie = 'MCPopupClosed=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+        document.cookie = 'MCPopupSubscribed=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/';
+
+        // If the popup has already been injected into the DOM, just show it
+        const existing = document.getElementById('PopupSignupForm_0');
+        if (existing) {
+          existing.style.display = 'block';
+          return;
+        }
+
+        // Otherwise re-inject the Mailchimp loader to render the popup
+        const old = document.getElementById('mcjs');
+        if (old && old.parentNode) old.parentNode.removeChild(old);
+        const s = document.createElement('script');
+        s.id = 'mcjs';
+        s.src = 'https://chimpstatic.com/mcjs-connected/js/users/3bfb0e6816958c8055d40bf48/70c98f348aadaf8e1369bb670.js';
+        document.head.appendChild(s);
+      });
+    })();
+  </script>
 
   <script>
     (async () => {
