@@ -19,7 +19,7 @@
       --light:   #718096;
       --rule:    #e5e7eb;
       --accent:  #1a3a52;
-      --gold:    #c9974c;
+      --gold:    #b86b34;
       --green:   #2d4a3e;
     }
 
@@ -771,21 +771,13 @@
       text-align: center;
       margin-bottom: 2.5rem;
     }
-    .latest-eyebrow {
-      display: block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
     .latest-title {
       font-family: 'Newsreader', serif;
       font-style: italic;
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-size: clamp(1.9rem, 3.4vw, 2.6rem);
       font-weight: 400;
       color: var(--ink);
+      letter-spacing: -0.015em;
     }
 
     .post-grid {
@@ -815,8 +807,12 @@
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.85rem;
+      color: #b86b34;
+      background: rgba(184, 107, 52, 0.1);
+      border: 1px solid rgba(184, 107, 52, 0.22);
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+      margin-bottom: 1.1rem;
     }
     .post-title {
       font-family: 'Newsreader', serif;
@@ -888,7 +884,7 @@
       font-weight: 700;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: #322044;
+      color: #b86b34;
       margin-bottom: 0.95rem;
     }
     .communities-title {
@@ -921,7 +917,7 @@
       font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #8b5e1c;
+      color: #b86b34;
       margin-bottom: 1rem;
     }
     .community-headline {
@@ -1017,7 +1013,7 @@
       font-weight: 700;
       letter-spacing: 0.24em;
       text-transform: uppercase;
-      color: #c9974c;
+      color: #b86b34;
       margin-bottom: 0.85rem;
     }
     .pb-title {
@@ -1044,7 +1040,7 @@
     .pb-btn {
       display: inline-block;
       padding: 0.75rem 1.35rem;
-      background: #c9974c;
+      background: #b86b34;
       color: #1f1428;
       font-family: 'Inter', sans-serif;
       font-size: 0.82rem;
@@ -1055,7 +1051,7 @@
       text-decoration: none;
       transition: background 0.15s, transform 0.15s;
     }
-    .pb-btn:hover { background: #d6a45a; transform: translateY(-1px); }
+    .pb-btn:hover { background: #cb7d40; transform: translateY(-1px); }
     .pb-btn--ghost {
       background: transparent;
       color: #fff;
@@ -1063,7 +1059,7 @@
     }
     .pb-btn--ghost:hover {
       background: rgba(255,255,255,0.08);
-      border-color: #c9974c;
+      border-color: #b86b34;
       transform: translateY(-1px);
     }
 
@@ -1132,7 +1128,7 @@
       cursor: pointer;
       transition: background 0.15s ease, transform 0.15s ease;
     }
-    .nl-form button:hover { background: #d6a45a; transform: translateY(-1px); }
+    .nl-form button:hover { background: #cb7d40; transform: translateY(-1px); }
 
     @media (max-width: 580px) {
       .hero { padding: 3.5rem 1.25rem 3rem; }
@@ -1150,7 +1146,7 @@
       <a class="topbar-brand" href="index.html">Engage Colorado</a>
       <div class="topbar-links">
         <a class="topbar-link is-active" href="index.html" aria-current="page">Home</a>
-        <a class="topbar-link" href="articles.html">Latest</a>
+        <a class="topbar-link" href="articles.html">Content</a>
         <a class="topbar-link" href="related.html">Related</a>
         <a class="topbar-link" href="about.html">About</a>
         <a class="topbar-cta" href="#newsletter" id="navSubscribe">Subscribe</a>
@@ -1189,8 +1185,8 @@
           <linearGradient id="mountainSplit" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0" stop-color="#1a3a52" />
             <stop offset="0.5" stop-color="#1a3a52" />
-            <stop offset="0.5" stop-color="#c9974c" />
-            <stop offset="1" stop-color="#c9974c" />
+            <stop offset="0.5" stop-color="#b86b34" />
+            <stop offset="1" stop-color="#b86b34" />
           </linearGradient>
         </defs>
         <g stroke="url(#mountainSplit)">
@@ -1207,8 +1203,7 @@
 
   <section class="latest" id="latest">
     <div class="latest-head">
-      <span class="latest-eyebrow">Latest</span>
-      <h2 class="latest-title">From Engage Colorado</h2>
+      <h2 class="latest-title">Latest from Engage Colorado</h2>
     </div>
     <ul class="post-grid" id="posts" data-loading>
       <li class="post-empty" data-placeholder>Loading recent editions…</li>

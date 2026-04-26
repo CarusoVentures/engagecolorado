@@ -13,7 +13,7 @@ Working document for deferred decisions and editorial intent. Not user-facing �
 | `--light` (secondary) | `#718096` | Light slate |
 | `--rule` (hairlines) | `#e5e7eb` | Neutral gray |
 | `--accent` (primary) | `#1a3a52` | Dusk-mountain blue — toolbar, primary actions |
-| `--gold` (accent) | `#c9974c` | Sandstone — active states, eyebrows |
+| `--gold` (legacy var name, terracotta value) | `#b86b34` | Terracotta — active states, eyebrows, primary accent. Variable name is `--gold` for compatibility but the color is terracotta. |
 | `--green` (secondary accent) | `#2d4a3e` | Forest green — preserved from original palette |
 | Bear Roars purple | `#3a2566` / `#322044` | Used in sponsor strip + Communities eyebrow |
 | Communities tint | `#f4ede0` | Soft sandstone bg for editorial section |
@@ -46,7 +46,7 @@ Total fixed chrome: ~169px. Body padding-top: 172px. Section anchor scroll-margi
 | `#003275` (primary navy) | `#1a3a52` |
 | `#001C4F` (deep navy) | `#0f2638` |
 | `#001030` (darkest navy) | `#0a1a26` |
-| `#FFD525` (gold) | `#c9974c` |
+| `#FFD525` (gold) | `#b86b34` |
 | `#C7453B` (flag red) | drop / replace with navy `#1a3a52` |
 | `#3A7D5C` (green) | `#2d4a3e` |
 | `#3D4F6B` / `#5C6A7E` slate blues | `#1f2937` / `#718096` |

@@ -65,8 +65,8 @@ section[id], div[id], header[id], main[id] { scroll-margin-top: 184px; }
 .topbar-link:hover { color: #ffffff; }
 
 .topbar-link.is-active {
-  color: #c9974c;
-  background: rgba(201, 151, 76, 0.14);
+  color: #b86b34;
+  background: rgba(184, 107, 52, 0.14);
   font-weight: 600;
 }
 
@@ -79,13 +79,13 @@ section[id], div[id], header[id], main[id] { scroll-margin-top: 184px; }
   font-weight: 600;
   letter-spacing: 0.02em;
   color: #1a3a52;
-  background: #c9974c;
+  background: #b86b34;
   border-radius: 999px;
   text-decoration: none;
   transition: background 0.15s ease, transform 0.15s ease;
 }
 .topbar-cta:hover {
-  background: #d6a45a;
+  background: #cb7d40;
   transform: translateY(-1px);
 }
 

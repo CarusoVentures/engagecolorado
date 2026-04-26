@@ -6,7 +6,7 @@ const PALETTE_MAP = {
   '#003275': '#1a3a52', // primary navy → dusk-mountain blue
   '#001C4F': '#0f2638', // deep navy → deeper dusk
   '#001030': '#0a1a26', // darkest navy
-  '#FFD525': '#c9974c', // gold → sandstone
+  '#FFD525': '#b86b34', // gold → terracotta
   '#C7453B': '#1a3a52', // flag red → drop, replace with navy (depoliticize)
   '#3A7D5C': '#2d4a3e', // green → forest green
   '#3D4F6B': '#1f2937', // slate blue 1 → slate
