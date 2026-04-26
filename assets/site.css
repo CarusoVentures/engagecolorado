@@ -1,0 +1,262 @@
+/* ─────────────────────────────────────────────
+   Engage Colorado — shared site chrome
+   Loaded by index.html, about.html, articles.html, article.html
+   Owns: top toolbar, body offset, anchor scroll-margin
+   ───────────────────────────────────────────── */
+
+body { padding-top: 172px; }
+
+/* In-page anchor targets clear the fixed toolbar + sponsor strip + featured strip */
+section[id], div[id], header[id], main[id] { scroll-margin-top: 184px; }
+
+/* ── Top toolbar ── */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 72px;
+  background: #1a3a52;
+  z-index: 1000;
+  transition: box-shadow 0.2s ease;
+}
+.topbar--scrolled {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.topbar-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar-brand {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #ffffff;
+  letter-spacing: -0.005em;
+  text-decoration: none;
+}
+
+.topbar-links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.topbar-link {
+  display: inline-block;
+  padding: 0.5rem 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.72);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.topbar-link:hover { color: #ffffff; }
+
+.topbar-link.is-active {
+  color: #c9974c;
+  background: rgba(201, 151, 76, 0.14);
+  font-weight: 600;
+}
+
+.topbar-cta {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0.5rem 1.1rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: #1a3a52;
+  background: #c9974c;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.topbar-cta:hover {
+  background: #d6a45a;
+  transform: translateY(-1px);
+}
+
+.topbar-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+.topbar-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #ffffff;
+  margin: 4px 0;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+@media (max-width: 720px) {
+  .topbar-toggle { display: block; }
+  .topbar-links {
+    position: absolute;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: #1a3a52;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.18);
+    display: none;
+  }
+  .topbar-links.is-open { display: flex; }
+  .topbar-link { padding: 0.85rem 1rem; }
+  .topbar-cta {
+    margin: 0.5rem 1rem 0.85rem;
+    text-align: center;
+  }
+}
+
+/* ── Bear Roars "Presented by" attribution strip ── */
+.presented-by {
+  display: block;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #f0eee9;
+  border-bottom: 1px solid #e0dcd2;
+  padding: 0.6rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.presented-by:hover { background: #e8e5dd; }
+
+.presented-by-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  font-size: 0.84rem;
+}
+.presented-by-eyebrow {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #8a857a;
+}
+.presented-by-name {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #3a2566;
+  letter-spacing: -0.005em;
+}
+.presented-by-divider {
+  color: #c0bcb0;
+  font-weight: 300;
+}
+.presented-by-desc {
+  color: #3a3530;
+  font-weight: 400;
+}
+.presented-by-cta {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a3a52;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+@media (max-width: 960px) {
+  .presented-by-desc,
+  .presented-by-divider:nth-of-type(2) { display: none; }
+}
+@media (max-width: 720px) {
+  .presented-by-divider { display: none; }
+  .presented-by-inner { gap: 0.6rem; }
+  .presented-by-eyebrow { display: none; }
+}
+
+/* ── Featured editorial strip (below Bear Roars sponsor strip) ── */
+.featured-strip {
+  display: block;
+  position: fixed;
+  top: 122px;
+  left: 0;
+  right: 0;
+  z-index: 998;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.55rem 1.5rem;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.featured-strip:hover { background: #f7f5f0; }
+
+.featured-strip-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  font-size: 0.84rem;
+}
+.fs-eyebrow {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #322044;
+}
+.fs-divider {
+  color: #d0ccc0;
+  font-weight: 300;
+}
+.fs-text {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.08rem;
+  font-weight: 500;
+  color: #0f2638;
+  letter-spacing: -0.005em;
+}
+.fs-cta {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #1a3a52;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+
+@media (max-width: 960px) {
+  .fs-divider:nth-of-type(2) { display: none; }
+}
+@media (max-width: 720px) {
+  .fs-divider,
+  .fs-eyebrow { display: none; }
+  .featured-strip-inner { gap: 0.55rem; }
+  .fs-text { font-size: 0.95rem; }
+}
