@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logo Options — Engage Colorado</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400;1,6..72,500;1,6..72,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #fafaf7;
+      --paper: #ffffff;
+      --ink: #0f2638;
+      --mid: #1f2937;
+      --light: #718096;
+      --rule: #e5e7eb;
+      --accent: #1a3a52;
+      --terracotta: #b86b34;
+      --beige: #f0eee9;
+      --sandstone: #f4ede0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 3rem 1.5rem 5rem;
+    }
+    .wrap { max-width: 1100px; margin: 0 auto; }
+    h1 {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .lede {
+      font-family: 'Newsreader', serif;
+      font-size: 1.15rem;
+      color: var(--mid);
+      text-align: center;
+      margin: 0 auto 3rem;
+      max-width: 720px;
+    }
+    .direction {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+    .direction-head {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .direction-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      margin-bottom: 0.5rem;
+    }
+    .direction-title {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.85rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 0.65rem;
+    }
+    .direction-desc {
+      font-family: 'Newsreader', serif;
+      font-size: 1.05rem;
+      color: var(--mid);
+      max-width: 720px;
+    }
+    .variants {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .variant {
+      text-align: center;
+    }
+    .variant-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-top: 0.85rem;
+    }
+    .swatch {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 110px;
+      height: 110px;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+    }
+    .swatch--beige { background: var(--beige); }
+    .swatch--sandstone { background: var(--sandstone); }
+    .swatch--white { background: #ffffff; }
+    .swatch--navy { background: var(--accent); }
+
+    .scale-row {
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.5rem;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .scale-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .scale-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--light);
+    }
+    .toolbar-mockup {
+      background: var(--accent);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-radius: 4px;
+    }
+    .toolbar-mockup-name {
+      color: #fff;
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+    }
+    .social-mockup {
+      width: 96px;
+      height: 96px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .verdict {
+      background: var(--sandstone);
+      padding: 1.25rem 1.5rem;
+      border-radius: 4px;
+      margin-top: 1.25rem;
+      font-size: 0.95rem;
+      color: var(--mid);
+    }
+    .verdict strong { color: var(--ink); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Logo / Mark Options</h1>
+    <p class="lede">
+      Three directions sketched at multiple working sizes. Each direction shows
+      a few variants where there's a meaningful choice (color treatment, framing).
+      The scale row at the bottom of each direction shows how the mark behaves
+      at favicon size, in the toolbar wordmark lockup, and as a social-share avatar.
+    </p>
+
+    <!-- ─────────────────── D1 ─────────────────── -->
+    <section class="direction">
+      <div class="direction-head">
+        <div class="direction-eyebrow">Direction 1</div>
+        <h2 class="direction-title">Mountain peak + sunrise</h2>
+        <p class="direction-desc">
+          A single Rocky Mountain peak with a terracotta sun rising behind. Captures
+          Colorado-of-place plus a forward-looking "what's coming" gesture. Pairs
+          literally with the dusk-mountain palette.
+        </p>
+      </div>
+
+      <div class="variants">
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+              <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#1a3a52"/>
+            </svg>
+          </div>
+          <div class="variant-label">A. Single peak, white bg</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--beige">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+              <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#1a3a52"/>
+            </svg>
+          </div>
+          <div class="variant-label">B. On warm beige</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="22" fill="#b86b34"/>
+              <path d="M 0 90 L 35 55 L 55 73 L 75 35 L 100 90 Z" fill="#0f2638"/>
+              <path d="M 0 90 L 30 65 L 55 80 L 78 55 L 100 90 Z" fill="#1a3a52" opacity="0.85"/>
+            </svg>
+          </div>
+          <div class="variant-label">C. Two-layer ridges</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--navy">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+              <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#fafaf7"/>
+            </svg>
+          </div>
+          <div class="variant-label">D. Inverted on navy</div>
+        </div>
+      </div>
+
+      <div class="scale-row">
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+            <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#1a3a52"/>
+          </svg>
+          <div class="scale-label">Favicon 16</div>
+        </div>
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+            <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#1a3a52"/>
+          </svg>
+          <div class="scale-label">Favicon 32</div>
+        </div>
+        <div class="scale-cell">
+          <div class="toolbar-mockup">
+            <svg viewBox="0 0 100 100" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="20" fill="#b86b34"/>
+              <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#fafaf7"/>
+            </svg>
+            <span class="toolbar-mockup-name">Engage Colorado</span>
+          </div>
+          <div class="scale-label">Toolbar lockup</div>
+        </div>
+        <div class="scale-cell">
+          <div class="social-mockup" style="background: #b86b34;">
+            <svg viewBox="0 0 100 100" width="64" height="64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="62" cy="50" r="20" fill="#fafaf7"/>
+              <path d="M 5 88 L 30 52 L 50 70 L 75 32 L 95 88 Z" fill="#1a3a52"/>
+            </svg>
+          </div>
+          <div class="scale-label">Social 96</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <strong>Strongest at:</strong> instant Colorado read, "horizon" symbolism, immediate emotional resonance.
+        <strong>Risk:</strong> mountain marks are common in Colorado branding (REI, Patagonia, every CO nonprofit). The single-peak treatment in variant A is the most distinctive of the four — the multi-peak version starts to feel generic.
+      </div>
+    </section>
+
+    <!-- ─────────────────── D3 ─────────────────── -->
+    <section class="direction">
+      <div class="direction-head">
+        <div class="direction-eyebrow">Direction 3</div>
+        <h2 class="direction-title">EC monogram</h2>
+        <p class="direction-desc">
+          Italic Newsreader serif "EC" — pure typography that pairs
+          seamlessly with the wordmark. Reads as "established publication," not as
+          "tech startup." The conservative pick that ages well.
+        </p>
+      </div>
+
+      <div class="variants">
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <text x="50" y="73" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="62" font-weight="500" fill="#1a3a52" text-anchor="middle" letter-spacing="-2">EC</text>
+            </svg>
+          </div>
+          <div class="variant-label">A. Plain on white</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="46" fill="none" stroke="#1a3a52" stroke-width="2.5"/>
+              <text x="50" y="68" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="44" font-weight="500" fill="#1a3a52" text-anchor="middle" letter-spacing="-1">EC</text>
+            </svg>
+          </div>
+          <div class="variant-label">B. Outlined seal</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--beige">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="#1a3a52"/>
+              <text x="50" y="68" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="48" font-weight="500" fill="#b86b34" text-anchor="middle" letter-spacing="-1">EC</text>
+            </svg>
+          </div>
+          <div class="variant-label">C. Navy badge, terracotta letters</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <text x="50" y="68" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="58" font-weight="500" fill="#1a3a52" text-anchor="middle" letter-spacing="-1">E</text>
+              <text x="62" y="78" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="42" font-weight="500" fill="#b86b34" text-anchor="middle" letter-spacing="-1">c</text>
+            </svg>
+          </div>
+          <div class="variant-label">D. E + lowercase c, two-tone</div>
+        </div>
+      </div>
+
+      <div class="scale-row">
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <text x="50" y="73" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="62" font-weight="500" fill="#1a3a52" text-anchor="middle" letter-spacing="-2">EC</text>
+          </svg>
+          <div class="scale-label">Favicon 16</div>
+        </div>
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <text x="50" y="73" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="62" font-weight="500" fill="#1a3a52" text-anchor="middle" letter-spacing="-2">EC</text>
+          </svg>
+          <div class="scale-label">Favicon 32</div>
+        </div>
+        <div class="scale-cell">
+          <div class="toolbar-mockup">
+            <svg viewBox="0 0 100 100" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+              <text x="50" y="73" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="62" font-weight="500" fill="#fafaf7" text-anchor="middle" letter-spacing="-2">EC</text>
+            </svg>
+            <span class="toolbar-mockup-name">Engage Colorado</span>
+          </div>
+          <div class="scale-label">Toolbar lockup</div>
+        </div>
+        <div class="scale-cell">
+          <div class="social-mockup" style="background: #1a3a52;">
+            <svg viewBox="0 0 100 100" width="74" height="74" xmlns="http://www.w3.org/2000/svg">
+              <text x="50" y="73" font-family="Newsreader, Georgia, serif" font-style="italic" font-size="60" font-weight="500" fill="#b86b34" text-anchor="middle" letter-spacing="-2">EC</text>
+            </svg>
+          </div>
+          <div class="scale-label">Social 96</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <strong>Strongest at:</strong> typographic coherence with the wordmark, scaling perfectly to favicon, ageless look, lowest risk of dating.
+        <strong>Risk:</strong> generic on its own — without the wordmark beside it, "EC" could be anything (Electronic Components? Eddie Caruso?). Variant C (navy badge with terracotta letters) is the strongest standalone treatment because the color palette does identification work the letters can't.
+      </div>
+    </section>
+
+    <!-- ─────────────────── D4 ─────────────────── -->
+    <section class="direction">
+      <div class="direction-head">
+        <div class="direction-eyebrow">Direction 4</div>
+        <h2 class="direction-title">Aspen leaf</h2>
+        <p class="direction-desc">
+          A simplified geometric aspen leaf. Uniquely Colorado, and pulls
+          terracotta from the palette into the symbology deliberately — the
+          autumn aspen is the iconic Colorado season-of-change image.
+        </p>
+      </div>
+
+      <div class="variants">
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#0f2638" stroke-width="1" opacity="0.4"/>
+            </svg>
+          </div>
+          <div class="variant-label">A. Solid terracotta</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#0f2638" stroke-width="1" opacity="0.45"/>
+              <path d="M 50 35 L 36 44 M 50 50 L 30 60 M 50 65 L 36 74" stroke="#0f2638" stroke-width="0.7" opacity="0.4" fill="none"/>
+              <path d="M 50 35 L 64 44 M 50 50 L 70 60 M 50 65 L 64 74" stroke="#0f2638" stroke-width="0.7" opacity="0.4" fill="none"/>
+            </svg>
+          </div>
+          <div class="variant-label">B. With veins</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--white">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="none" stroke="#1a3a52" stroke-width="3"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#1a3a52" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="variant-label">C. Outline only, navy</div>
+        </div>
+
+        <div class="variant">
+          <div class="swatch swatch--navy">
+            <svg viewBox="0 0 100 100" width="80" height="80" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#fafaf7" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="variant-label">D. Terracotta on navy</div>
+        </div>
+      </div>
+
+      <div class="scale-row">
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+          </svg>
+          <div class="scale-label">Favicon 16</div>
+        </div>
+        <div class="scale-cell">
+          <svg viewBox="0 0 100 100" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+            <line x1="50" y1="14" x2="50" y2="90" stroke="#0f2638" stroke-width="1" opacity="0.4"/>
+          </svg>
+          <div class="scale-label">Favicon 32</div>
+        </div>
+        <div class="scale-cell">
+          <div class="toolbar-mockup">
+            <svg viewBox="0 0 100 100" width="28" height="28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#fafaf7" stroke-width="1" opacity="0.5"/>
+            </svg>
+            <span class="toolbar-mockup-name">Engage Colorado</span>
+          </div>
+          <div class="scale-label">Toolbar lockup</div>
+        </div>
+        <div class="scale-cell">
+          <div class="social-mockup" style="background: #1a3a52;">
+            <svg viewBox="0 0 100 100" width="74" height="74" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 50 12 C 32 18 22 35 22 55 C 22 75 38 88 50 92 C 62 88 78 75 78 55 C 78 35 68 18 50 12 Z" fill="#b86b34"/>
+              <line x1="50" y1="14" x2="50" y2="90" stroke="#fafaf7" stroke-width="1.2" opacity="0.5"/>
+            </svg>
+          </div>
+          <div class="scale-label">Social 96</div>
+        </div>
+      </div>
+
+      <div class="verdict">
+        <strong>Strongest at:</strong> uniquely Colorado without being place-cliché; pulls the terracotta accent into the symbol; warm and seasonal.
+        <strong>Risk:</strong> botanical marks can read soft for civic/policy work. The simplified shape in variant A is editorial enough; the veined version (B) starts to feel decorative.
+      </div>
+    </section>
+
+    <p class="lede" style="margin-top: 3rem;">
+      Tell me which direction(s) and which variant(s) you want to explore further.
+      Once we land on one, I'll wire it in as the favicon, into the toolbar
+      lockup, and as the social-share image.
+    </p>
+  </div>
+</body>
+</html>
