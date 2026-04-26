@@ -72,9 +72,10 @@ module.exports = async function handler(req, res) {
     }
 
     const data = await r.json();
-    // No edge cache during active design iteration — bump back up (e.g.
-    // s-maxage=600, stale-while-revalidate=3600) once the palette stabilizes.
-    res.setHeader('Cache-Control', 'no-store');
+    // 5-minute fresh cache + 1-hour stale-while-revalidate. Protects
+    // against Mailchimp API rate limits under traffic spikes (e.g. press
+    // coverage). New palette changes propagate within 5 minutes globally.
+    res.setHeader('Cache-Control', 'public, s-maxage=300, stale-while-revalidate=3600');
     res.setHeader('x-recolored', '1');
     return res.status(200).json({
       html: recolor(data.html || ''),
