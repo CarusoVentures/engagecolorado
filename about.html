@@ -11,6 +11,57 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    /* About page has a 4th strip (Dan + Caruso Ventures) below the others */
+    body { padding-top: 218px; }
+    section[id], div[id], header[id], main[id] { scroll-margin-top: 230px; }
+
+    .about-strip {
+      position: fixed;
+      top: 169px;
+      left: 0;
+      right: 0;
+      z-index: 997;
+      background: #f4ede0;
+      border-bottom: 1px solid #e0dcd2;
+      padding: 0.55rem 1.5rem;
+    }
+    .about-strip-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+    }
+    .as-eyebrow {
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #1a3a52;
+    }
+    .as-divider { color: #c0bcb0; font-weight: 300; }
+    .as-link {
+      font-family: 'Newsreader', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #b86b34;
+      font-weight: 600;
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+      letter-spacing: -0.005em;
+      transition: opacity 0.15s ease;
+    }
+    .as-link:hover { opacity: 0.7; }
+
+    @media (max-width: 720px) {
+      body { padding-top: 240px; }
+      .about-strip-inner { flex-direction: column; gap: 0.4rem; padding: 0.2rem 0; }
+      .as-divider { display: none; }
+    }
+
     :root {
       --bg:     #fafaf7;
       --white:  #ffffff;
@@ -248,7 +299,7 @@
     </div>
   </nav>
 
-  <a class="presented-by" href="https://open.spotify.com/show/7lSJw2YQ55glPxWhZhTcbg" target="_blank" rel="noopener">
+  <a class="presented-by" href="index.html#listen">
     <div class="presented-by-inner">
       <span class="presented-by-eyebrow">Presented by</span>
       <span class="presented-by-name">The Bear Roars</span>
@@ -269,6 +320,16 @@
       <span class="fs-cta">Read →</span>
     </div>
   </a>
+
+  <div class="about-strip">
+    <div class="about-strip-inner">
+      <span class="as-eyebrow">More about</span>
+      <span class="as-divider">·</span>
+      <a class="as-link" href="https://carusoventures.com/about-dan-caruso" target="_blank" rel="noopener">Dan Caruso →</a>
+      <span class="as-divider">·</span>
+      <a class="as-link" href="https://carusoventures.com/" target="_blank" rel="noopener">Caruso Ventures →</a>
+    </div>
+  </div>
 
   <header class="page-header">
     <div class="page-header-inner">

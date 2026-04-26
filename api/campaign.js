@@ -22,8 +22,9 @@ function recolor(html) {
   if (!html) return html;
   let out = html;
   for (const [from, to] of Object.entries(PALETTE_MAP)) {
-    out = out.split(from).join(to);
-    out = out.split(from.toLowerCase()).join(to.toLowerCase());
+    // Case-insensitive replace catches #FFD525, #ffd525, mixed case
+    const re = new RegExp(from, 'gi');
+    out = out.replace(re, to);
   }
   return out;
 }
@@ -71,9 +72,10 @@ module.exports = async function handler(req, res) {
     }
 
     const data = await r.json();
-    // Short cache during active design iteration — bump back up (e.g.
+    // No edge cache during active design iteration — bump back up (e.g.
     // s-maxage=600, stale-while-revalidate=3600) once the palette stabilizes.
-    res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=300');
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('x-recolored', '1');
     return res.status(200).json({
       html: recolor(data.html || ''),
       plain_text: data.plain_text || '',
