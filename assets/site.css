@@ -233,13 +233,21 @@ section[id], div[id], header[id], main[id] { scroll-margin-top: 184px; }
   color: #d0ccc0;
   font-weight: 300;
 }
-.fs-text {
+.fs-section {
   font-family: 'Newsreader', serif;
   font-style: italic;
-  font-size: 1.08rem;
-  font-weight: 500;
-  color: #0f2638;
+  font-size: 1.02rem;
+  font-weight: 400;
+  color: #1f2937;
   letter-spacing: -0.005em;
+}
+.fs-festival {
+  font-family: 'Newsreader', serif;
+  font-style: italic;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #b86b34;
+  letter-spacing: -0.01em;
 }
 .fs-cta {
   font-size: 0.7rem;
@@ -256,7 +264,8 @@ section[id], div[id], header[id], main[id] { scroll-margin-top: 184px; }
 }
 @media (max-width: 720px) {
   .fs-divider,
-  .fs-eyebrow { display: none; }
+  .fs-eyebrow,
+  .fs-section { display: none; }
   .featured-strip-inner { gap: 0.55rem; }
-  .fs-text { font-size: 0.95rem; }
+  .fs-festival { font-size: 1.05rem; }
 }
