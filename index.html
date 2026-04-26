@@ -726,38 +726,43 @@
       margin-top: 1rem;
     }
 
-    /* ── HERO STRIP (homepage minimal title) ── */
+    /* ── HERO STRIP (homepage masthead — centered card on warm tint) ── */
     .hero-strip {
+      max-width: 720px;
+      margin: 2rem auto 1rem;
+      padding: 2.5rem 2rem 2rem;
       text-align: center;
-      padding: 3.5rem 1.5rem 2.75rem;
-      border-bottom: 1px solid var(--rule);
+      background: #f0eee9;
+      border: 1px solid #e0dcd2;
+      border-radius: 4px;
     }
     .hero-strip .mark {
       display: inline-block;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.1rem;
     }
     .hero-strip .mark svg {
       display: block;
-      width: 80px;
+      width: 72px;
       height: auto;
     }
     .hero-strip .site-title {
       font-family: 'Newsreader', serif;
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-size: clamp(2.2rem, 4.5vw, 3.2rem);
       line-height: 1.05;
       letter-spacing: -0.015em;
       color: var(--ink);
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.7rem;
     }
     .hero-strip .site-tag {
       font-family: 'Newsreader', serif;
-      font-size: clamp(1rem, 2vw, 1.2rem);
+      font-size: clamp(1rem, 2vw, 1.18rem);
       color: var(--mid);
       font-weight: 400;
-      max-width: 720px;
+      max-width: 620px;
       margin: 0 auto;
+      line-height: 1.4;
     }
     .hero-strip .site-tag em { font-style: italic; }
 
@@ -765,11 +770,11 @@
     .latest {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 4rem 1.5rem 1rem;
+      padding: 2rem 1.5rem 1rem;
     }
     .latest-head {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .latest-title {
       font-family: 'Newsreader', serif;

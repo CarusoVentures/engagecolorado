@@ -71,7 +71,9 @@ module.exports = async function handler(req, res) {
     }
 
     const data = await r.json();
-    res.setHeader('Cache-Control', 'public, s-maxage=600, stale-while-revalidate=3600');
+    // Short cache during active design iteration — bump back up (e.g.
+    // s-maxage=600, stale-while-revalidate=3600) once the palette stabilizes.
+    res.setHeader('Cache-Control', 'public, s-maxage=30, stale-while-revalidate=300');
     return res.status(200).json({
       html: recolor(data.html || ''),
       plain_text: data.plain_text || '',
